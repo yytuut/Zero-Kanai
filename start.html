@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゼロから始まる夏休み</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet"> <!-- Yomogi 폰트 추가 -->
+    <link rel="icon" type="images/png" href="images/kanai.png">
+</head>
+<body>
+    <header class="page-header">
+        <h1><a href="index.html"><img class="logo" src="images/kanai.png" alt="ゼロから始まる夏休み"></a></h1>
+        <!-- 햄버거 버튼 -->
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+        <!-- 숨겨질 메뉴 -->
+        <nav id="dropdown-menu" class="dropdown-menu hidden">
+            <ul class="main-nav">
+                <li><a href="gaiyou.html">概要</a></li>
+                <li><a href="kasiwa.html">カシワテク</a></li>
+                <li><a href="nihonzin.html">日本人会</a></li>
+                <li><a href="baseball.html">野球</a></li>
+                <li><a href="matome.html">まとめ</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+<script>
+    function toggleMenu() {
+      const menu = document.getElementById('dropdown-menu');
+      menu.classList.toggle('show');
+    }
+</script>
+</html>
