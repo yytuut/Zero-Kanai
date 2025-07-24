@@ -10,9 +10,22 @@
 </head>
 <body>
     <div class="zero">
-        <h1 class="page-title">ゼロから始まる夏休み!</h1>
-        <p>全てはゼロから。。。</p>
+        <h1 class="page-title wave-text">ゼロから始まる夏休み!</h1>
         <a class="button" href="start.html">スタート</a>
     </div><!--/.zero-->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const el = document.querySelector(".wave-text");
+      const text = el.textContent.trim();
+      el.textContent = "";
+
+      [...text].forEach((char, i) => {
+        const span = document.createElement("span");
+        span.textContent = char;
+        span.style.animationDelay = `${i * 0.1}s`;
+        el.appendChild(span);
+      });
+    });
+</script>
 </body>
 </html>
