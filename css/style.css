@@ -2,7 +2,6 @@
 /* 기본 스타일 */
 body {
     font-family: 'Yomogi', sans-serif;
-    background-color: white;
     color: #333;
     margin: 0;
     padding: 0;
@@ -10,7 +9,14 @@ body {
     justify-content: center; /* 수평 중앙 정렬 */
     align-items: center;     /* 수직 중앙 정렬 */
     height: 100vh;           /* 화면 전체 높이 */
+    cursor: url('../images/ball1.png') 32 32, auto;
 }
+/* index 페이지 전용 배경 스타일 */
+body.home {
+    background: url('../images/background.png');
+    background-size: cover;
+}
+
 /* .zero div 스타일 */
 .zero {
     text-align: center;
@@ -29,17 +35,23 @@ body {
     padding: 12px 25px;
     margin-top: 10%;
     font-size: 30px;
-    color: #fff;
-    background-color: #007bff;
+    font-weight: bold;
+    color: #7B5E57;
+    background-color: #f6ecd9;
     text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    border: 2px solid #c8a58f;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: url('../images/ball2.png') 32 32, auto;
 }
 .button:hover {
-    background-color: #0056b3;
+    background-color: #e0e0d1;
+    transform: translateY(-2px);
 }
 .button:active {
-    background-color: #003366;
+    background-color: #d6cfc2; /* 눌렸을 때 따뜻한 딥레드 */
+    transform: translateY(0);  /* 눌릴 때 튀는 효과 제거 */
 }
 /* header 스타일 */
 .page-header {
@@ -58,8 +70,10 @@ body {
 }
 /* 로고 스타일 */
 .page-header .logo {
-    max-height: 50px;  /* 로고의 최대 높이 */
+    max-height: 50px;
+    cursor: url('../images/ball2.png') 32 32, auto;
 }
+
 /* 네비게이션 바 스타일 */
 .main-nav {
   list-style: none;
@@ -78,6 +92,7 @@ body {
   font-size: 20px;                   /* 글자 좀 더 큼 */
   line-height: 1.6;                  /* 줄간 간격 넓게 */
   transition: background-color 0.2s ease;
+  cursor: url('../images/ball2.png') 32 32, auto;
 }
 .main-nav a:hover {
   background-color: #eee;           /* hover 시 배경색 */
@@ -90,8 +105,9 @@ body {
   background-color: #fff;
   border: 2px solid #333;
   border-radius: 8px;
-  cursor: pointer;
   margin: 1px;
+  cursor: url('../images/ball2.png') 32 32, auto;
+  display: inline-block;
 }
 
 .dropdown-menu {
@@ -114,6 +130,36 @@ body {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
+}
+/* footer */
+footer{
+  background: #f6ecd9;
+  text-align: center;
+  padding: 26px 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+footer p{
+  color: #7B5E57;
+  font-size: 0.875rem;
+  font-family: 'Yomogi', sans-serif;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 1.8s ease-out forwards;
 }
 
 @keyframes wave {
