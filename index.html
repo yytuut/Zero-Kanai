@@ -8,9 +8,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet"> <!-- Yomogi 폰트 추가 -->
     <link rel="icon" type="images/png" href="images/kanai.png">
 </head>
-<body class="home">
+<body>
     <div class="zero">
         <h1 class="page-title wave-text fade-in">ゼロから始まる夏休み!</h1>
+        <p class="fade-in">ゼロから始まる夏休み!</p>
         <a class="button fade-in" href="start.html">スタート</a>
     </div><!--/.zero-->
 <script>
@@ -26,6 +27,17 @@
         el.appendChild(span);
       });
     });
+    document.querySelector(".button").addEventListener("click", function (e) {
+    e.preventDefault(); // 기본 링크 동작 막기
+
+    // body에 fade-out 클래스 추가
+    document.body.classList.add("fade-out");
+
+    // 애니메이션이 끝난 후 페이지 이동
+    setTimeout(() => {
+      window.location.href = this.getAttribute("href");
+    }, 1000); // 1초 후 이동 (transition 시간과 맞추기)
+  });
 </script>
 </body>
 </html>

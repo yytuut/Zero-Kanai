@@ -1,4 +1,7 @@
 @charset "UTF-8";
+html{
+  cursor: url('../images/ball1.png') 32 32, auto;
+}
 /* 기본 스타일 */
 body {
     font-family: 'Yomogi', sans-serif;
@@ -7,14 +10,14 @@ body {
     padding: 0;
     display: flex;
     justify-content: center; /* 수평 중앙 정렬 */
+    flex-direction: column;
     align-items: center;     /* 수직 중앙 정렬 */
     height: 100vh;           /* 화면 전체 높이 */
     cursor: url('../images/ball1.png') 32 32, auto;
-}
-/* index 페이지 전용 배경 스타일 */
-body.home {
     background: url('../images/background.png');
     background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 /* .zero div 스타일 */
@@ -54,24 +57,53 @@ body.home {
     transform: translateY(0);  /* 눌릴 때 튀는 효과 제거 */
 }
 /* header 스타일 */
+header{
+  position: fixed;  
+  height: 100px;
+}
 .page-header {
     position: relative; /* 드롭다운 메뉴가 이 안에서 절대 위치하도록 함 */
     display: flex;
     justify-content: space-between;  /* 왼쪽, 오른쪽 요소를 양쪽 끝으로 정렬 */
     align-items: center;  /* 수직 정렬: 요소들을 수직 중앙에 맞추기 */
     padding: 10px 20px;  /* 여백 설정 */
-    background-color: #fff;  /* 배경색 설정 */
+    background-color: transparent;  /* 배경색 투명화 설정 */
     position: fixed;  /* 네비게이션 바 고정 */
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 2000;
     box-sizing: border-box; /* 패딩을 포함한 전체 너비 계산 */
 }
 /* 로고 스타일 */
 .page-header .logo {
     max-height: 50px;
     cursor: url('../images/ball2.png') 32 32, auto;
+    height: 40px; /* 원하는 높이로 조정 */
+    margin-right: 10px; /* 텍스트와 이미지 사이 간격 */
+    pointer-events: auto;
+    z-index: 1001; /* 배경보다 위에 위치시키기 */
+}
+
+.page-header h1 a {
+  font-family: 'Yomogi', cursive;
+  font-size: 24px;
+  font-weight: bold;
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+  z-index: 1001; /* 배경보다 위에 위치시키기 */
+}
+
+.page-header h1 a:link,
+.page-header h1 a:visited,
+.page-header h1 a:hover,
+.page-header h1 a:active {
+  color: inherit;        /* 색상 유지 */
+  text-decoration: none; /* 밑줄 제거 */
+  cursor: url('../images/ball2.png') 32 32, auto;
 }
 
 /* 네비게이션 바 스타일 */
@@ -99,6 +131,10 @@ body.home {
   border-radius: 8px;               /* 부드럽게 */
 }
 .menu-toggle {
+  position: fixed;             /* 화면 고정 */
+  top: 25px;                   /* 상단에서 거리 */
+  right: 27px;                 /* 오른쪽에서 거리 */
+  z-index: 2001;               /* 헤더 위에 올라오게 */
   font-family: 'Yomogi', cursive;
   font-size: 1.2rem;
   padding: 10px 15px;
@@ -112,9 +148,9 @@ body.home {
 
 .dropdown-menu {
   position: absolute;
-  top: 80%;          /* 버튼 아래로 완전히 이동 */
+  top: 85%;          /* 버튼 아래로 완전히 이동 */
   right: 20px;        /* 버튼 정렬과 일치 */
-  margin-top: 8px;    /* 버튼과 약간 간격 */
+  margin-top: 10px;    /* 버튼과 약간 간격 */
   background-color: #f8f8f8;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -136,10 +172,10 @@ footer{
   background: #f6ecd9;
   text-align: center;
   padding: 26px 0;
-  position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
+  margin-top: 100px; /* 콘텐츠와 떨어지도록 여백 추가 */
 }
 footer p{
   color: #7B5E57;
@@ -160,6 +196,80 @@ footer p{
 
 .fade-in {
   animation: fadeInUp 1.8s ease-out forwards;
+}
+/* 페이드 아웃 효과 */
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+main, footer {
+  position: relative;
+  z-index: 1;
+}
+
+.fade-in-start {
+  opacity: 0;
+  animation: fadeInStart 1s ease-in-out forwards;
+}
+/* main 타이틀*/
+main {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: visible;
+  padding-top: 120px;
+  min-height: 300vh; /* 화면 전체 높이 확보 */
+}
+
+/* 개별 이미지 위치 지정 */
+.scatter-left-top {
+  position: absolute;
+  top: 850px;
+  left: 250px;
+}
+
+.scatter-right-top {
+  position: absolute;
+  top: 950px;
+  right: 300px;
+}
+
+.scatter-left-bottom {
+  position: absolute;
+  bottom: 100px;
+  left: 300px;
+}
+
+.scatter-right-bottom {
+  position: absolute;
+  bottom: -20px;
+  right: 250px;
+}
+
+.unique-image {
+  width: 250px;
+  transform: rotate(var(--rotate, 0deg));
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  cursor: url('../images/ball2.png') 32 32, pointer;
+}
+
+/* 각 이미지마다 다른 각도로 회전 */
+.rotate-1 { transform: rotate(-7deg); }
+.rotate-2 { transform: rotate(8deg); }
+.rotate-3 { transform: rotate(6deg); }
+.rotate-4 { transform: rotate(-8deg); }
+
+.unique-image:hover {
+  transform: scale(1.05);
+}
+
+@keyframes fadeInStart {
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes wave {

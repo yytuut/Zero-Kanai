@@ -8,24 +8,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet"> <!-- Yomogi 폰트 추가 -->
     <link rel="icon" type="images/png" href="images/kanai.png">
 </head>
-<body>
+<body class="fade-in-start">
     <header class="page-header">
-        <h1><a href="index.html"><img class="logo" src="images/kanai.png" alt="ゼロから始まる夏休み"></a></h1>
+        <h1><a href="index.html"><img class="logo" src="images/kanai.png" alt="ゼロから始まる夏休み">Best Regards</a></h1>
         <!-- 햄버거 버튼 -->
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
         <!-- 숨겨질 메뉴 -->
-        <nav id="dropdown-menu" class="dropdown-menu hidden">
+        <nav id="dropdown-menu" class="dropdown-menu">
             <ul class="main-nav">
                 <li><a href="gaiyou.html">概要</a></li>
                 <li><a href="syuzinkou.html">主人公の紹介</a></li>
-                <li><a href="kasiwa.html">カシワテク</a></li>
+                <li><a href="kasiwa.html">カシワテック</a></li>
                 <li><a href="nihonzin.html">日本人会</a></li>
                 <li><a href="syumi.html">趣味</a></li>
                 <li><a href="matome.html">まとめ</a></li>
             </ul>
         </nav>
     </header>
+    <main>
+  <div class="image-scatter scatter-left-top">
+    <img src="images/syuzinkou.png" alt="主人公の紹介" class="unique-image rotate-1">
+  </div>
+  <div class="image-scatter scatter-right-top">
+    <img src="images/kasiwa.png" alt="カシワテック" class="unique-image rotate-2">
+  </div>
+  <div class="image-scatter scatter-left-bottom">
+    <img src="images/nihonzin.png" alt="日本人会" class="unique-image rotate-3">
+  </div>
+  <div class="image-scatter scatter-right-bottom">
+    <img src="images/syumi.png" alt="趣味" class="unique-image rotate-4">
+  </div>
+</main>
     <footer>
         <p><small>&copy; 2025 ゼロから始まる夏休み</small></p>
     </footer>
