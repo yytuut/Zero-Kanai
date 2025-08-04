@@ -153,6 +153,7 @@ header{
 
 .dropdown-menu {
   position: absolute;
+  width: 9%;
   top: 85%;          /* 버튼 아래로 완전히 이동 */
   right: 20px;        /* 버튼 정렬과 일치 */
   margin-top: 10px;    /* 버튼과 약간 간격 */
@@ -174,13 +175,12 @@ header{
 }
 /* footer */
 footer{
-  background: #f6ecd9;
+  background: #e4d1af;
   text-align: center;
   padding: 26px 0;
   bottom: 0;
   left: 0;
   width: 100%;
-  
 }
 footer p{
   color: #7B5E57;
@@ -318,12 +318,15 @@ main {
 
   .dropdown-menu {
     right: 10px;
-    width: 80%;
+    width: 27%;
+    margin-top: -10px;
   }
-
+  .main-nav li {
+    margin: 0;
+  }
   .main-nav a {
     font-size: 18px;
-    padding: 10px 15px;
+    padding: 8px 10px;
   }
 
   .scatter-container {
