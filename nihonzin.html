@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ゼロから始まる夏休み-主人公の紹介</title>
+    <link rel="stylesheet" href="css/style1.css">
+    <link rel="stylesheet" href="css/nihon.css">
+    <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet"> <!-- Yomogi 폰트 추가 -->
+    <link rel="icon" type="images/png" href="images/kanai.png">
+</head>
+<body class="fade-in-start">
+    <header class="page-header">
+        <h1><a href="start.html"><img class="logo" src="images/kanai.png" alt="ゼロから始まる夏休み">Best Regards</a></h1>
+            <!-- 데스크탑 전용 메뉴 -->
+            <ul class="main-nav">
+                <li><a href="gaiyou.html">概要</a></li>
+                <li><a href="syuzinkou.html">主人公の紹介</a></li>
+                <li><a href="kasiwa.html">カシワテック</a></li>
+                <li><a href="nihonzin.html">日本人会</a></li>
+                <li><a href="syumi.html">趣味</a></li>
+                <li><a href="matome.html">まとめ</a></li>
+            </ul>
+            <!-- 모바일용 버튼 -->
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+            <!-- 모바일 드롭다운 -->
+            <nav id="dropdown-menu" class="dropdown-menu">
+            <ul>
+                <li><a href="gaiyou.html">概要</a></li>
+                <li><a href="syuzinkou.html">主人公の紹介</a></li>
+                <li><a href="kasiwa.html">カシワテック</a></li>
+                <li><a href="nihonzin.html">日本人会</a></li>
+                <li><a href="syumi.html">趣味</a></li>
+                <li><a href="matome.html">まとめ</a></li>
+            </ul>
+            </nav>
+    </header>
+    <main>
+      <img id="zaebal" src="images/background.png" alt="">
+  
+       <div class="product-section">
+  <!-- 부산일본인회 사진 -->
+  <div class="product-image">
+    <img src="images/busannihonjinkai.jpg" alt="busannihonjinkai">
+  </div>
+      <div class="semi-title1">
+       <h3> 基になる活動</h3>
+        </div>
+  <!-- 설명 영역 -->
+  <div class="product-features">
+    <div class="feature">
+      <h3>釜山日本人学校</h3>
+     
+        <section id="school"> 
+        <img id="school" src="images/kanaischool.webp" alt="kanaischool">
+      <p>학교에 대한 자세한 설명 설명</p>
+    </div>
+
+    <div class="feature">
+      <h3>日韓交流</h3>
+      <p>여기에 사진을 넣어도 좋구요<br>
+        대한 자세한 설명 설명</p>
+    </div>
+
+    <div class="feature">
+      <h3>生活支援</h3>
+      <p>여기에 사진을 넣어도 좋구요<br>
+        대한 자세한 설명 설명</p>
+    </div>
+  </div>
+</div>
+    </main>
+    <footer>
+        <p><small>&copy; 2025 ゼロから始まる夏休み</small></p>
+    </footer>
+</body>
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('dropdown-menu');
+    menu.classList.toggle('show');
+  }
+</script>
+
+</html>
