@@ -229,6 +229,7 @@ aside p{
 
 .sub-menu a:hover{
   color: #ccc;
+  cursor: url('../images/ball2.png') 32 32, auto;
 }
 /* aside 옆부분 조정 */
 .content-wrapper {

@@ -200,6 +200,7 @@ main {
 }
 .product-image:hover{
   transform: scale(1.03);
+  cursor: url('../images/ball2.png') 32 32, auto;
 }
 .product-image img {
   max-width: 100%;
@@ -237,6 +238,9 @@ main {
   margin-top: 30px;
   gap: 20px;
   flex-wrap: wrap;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
 #school img{
@@ -250,14 +254,15 @@ main {
   flex: 1;
   min-width: 250px;
   text-align: center;
-  background-color: #fff;
+  /* background-color: #fff;
   border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); */
   padding: 20px;
   transition: transform 0.3s ease;
 }
 .feature:hover{
   transform: scale(1.03);
+  cursor: url('../images/ball2.png') 32 32, auto;
 }
 .feature h3 {
   font-size: 16px;
@@ -298,6 +303,7 @@ aside p{
 
 .sub-menu a:hover{
   color: #ccc;
+  cursor: url('../images/ball2.png') 32 32, auto;
 }
 /* aside 옆부분 조정 */
 .content-wrapper {
