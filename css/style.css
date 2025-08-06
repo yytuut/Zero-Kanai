@@ -246,7 +246,6 @@ main {
   position: relative;
   width: 250px;
   height: auto;
-  cursor: url('../images/ball2.png') 32 32, auto;
   transition: transform 0.3s ease;
 }
 
@@ -266,6 +265,7 @@ main {
 
 .unique-image:hover {
   transform: scale(1.05); /* hover 시 이미지 확대 */
+  cursor: url('../images/ball2.png') 32 32, auto;
 }
 
 @keyframes fadeInStart {
