@@ -1,6 +1,7 @@
 @charset "UTF-8";
 html{
   cursor: url('../images/ball1.png') 32 32, auto;
+  scroll-behavior: smooth;
 }
 /* 기본 스타일 */
 body {
@@ -201,7 +202,44 @@ main {
   margin: 0;
   line-height: 1.6;
 }
+/* aside */
+.sub-title{
+  font-size: 1.375rem;
+  padding: 0 8px 8px;
+  border-bottom: 2px #7B5E57 solid;
+  font-weight: normal;
+}
+aside p{
+  padding: 12px 10px;
+}
+.sub-menu{
+  margin-bottom: 60px;
+  list-style: none;
+}
+.sub-menu li{
+  border-bottom: 1px #e4d1af solid;
+}
+.sub-menu a{
+  color: #333;
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  color: inherit; /* 링크 색상도 기본 텍스트 색상으로 */
+}
 
+.sub-menu a:hover{
+  color: #ccc;
+}
+/* aside 옆부분 조정 */
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
 /* footer */
 footer{
   background: #e4d1af;
@@ -352,5 +390,14 @@ footer p{
 
   footer p {
     font-size: 0.75rem;
+  }
+  .content-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  aside {
+    width: 100%;
+    margin-top: 20px;
   }
 }

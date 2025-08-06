@@ -1,6 +1,7 @@
 @charset "UTF-8";
 html{
   cursor: url('../images/ball1.png') 32 32, auto;
+  scroll-behavior: smooth;
 }
 /* 기본 스타일 */
 body {
