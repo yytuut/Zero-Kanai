@@ -1,0 +1,480 @@
+@charset "UTF-8";
+html{
+  cursor: url('../images/ball1.png') 32 32, auto;
+  scroll-behavior: smooth;
+}
+/* 기본 스타일 */
+body {
+    font-family: 'Yomogi', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* 수평 중앙 정렬 */
+    flex-direction: column;
+    align-items: center;     /* 수직 중앙 정렬 */
+    height: 100vh; 
+    cursor: url('../images/ball1.png') 32 32, auto;
+    background-color: #f6ecd9;
+    background-attachment: fixed;
+}
+
+/* header 스타일 */
+header{
+  position: fixed;  
+  height: 100px;
+}
+.page-header {
+    position: relative; /* 드롭다운 메뉴가 이 안에서 절대 위치하도록 함 */
+    display: flex;
+    justify-content: space-between;  /* 왼쪽, 오른쪽 요소를 양쪽 끝으로 정렬 */
+    align-items: center;  /* 수직 정렬: 요소들을 수직 중앙에 맞추기 */
+    padding: 10px 20px;  /* 여백 설정 */
+    background-color: #e4d1af; /* 투명 대신 원하는 배경색으로 설정 */
+    position: fixed;  /* 네비게이션 바 고정 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2000;
+    box-sizing: border-box; /* 패딩을 포함한 전체 너비 계산 */   
+}
+/* 로고 스타일 */
+.page-header .logo {
+    max-height: 50px;
+    cursor: url('../images/ball2.png') 32 32, auto;
+    height: 40px; /* 원하는 높이로 조정 */
+    margin-right: 10px; /* 텍스트와 이미지 사이 간격 */
+    pointer-events: auto;
+    z-index: 1001; /* 배경보다 위에 위치시키기 */
+}
+
+.page-header h1 a {
+  font-family: 'Yomogi', cursive;
+  font-size: 24px;
+  font-weight: bold;
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+  z-index: 1001; /* 배경보다 위에 위치시키기 */
+}
+
+.page-header h1 a:link,
+.page-header h1 a:visited,
+.page-header h1 a:hover,
+.page-header h1 a:active {
+  color: inherit;        /* 색상 유지 */
+  text-decoration: none; /* 밑줄 제거 */
+  cursor: url('../images/ball2.png') 32 32, auto;
+}
+
+/* 네비게이션 바 스타일 */
+.main-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  display: flex;     
+  justify-content: center;  
+}
+.main-nav li {
+    margin: 0;
+}
+.main-nav a {  
+  padding: 14px 20px;                /* 내부 여백 크게 */
+  text-decoration: none;
+  color: #7B5E57;
+  font-family: 'Yomogi', cursive;
+  font-size: 20px;                   /* 글자 좀 더 큼 */
+  font-weight: bold;
+  line-height: 1.6;                  /* 줄간 간격 넓게 */
+  transition: background-color 0.2s ease;
+  cursor: url('../images/ball2.png') 32 32, auto;
+}
+.main-nav a:hover {
+  color: #f6ecd9;
+  border-radius: 8px;               /* 부드럽게 */
+}
+
+/* 기본적으로 햄버거 버튼 숨김 */
+.menu-toggle {
+  display: none;
+  position: fixed;             /* 화면 고정 */
+  top: 25px;                   /* 상단에서 거리 */
+  right: 27px;                 /* 오른쪽에서 거리 */
+  z-index: 20;               /* 헤더 위에 올라오게 */
+  font-family: 'Yomogi', cursive;
+  font-size: 1.2rem;
+  padding: 10px 15px;
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 8px;
+  margin: 1px;
+  cursor: url('../images/ball2.png') 32 32, auto;
+}
+/* 기본적으로 숨기기 */
+.dropdown-menu {
+  position: absolute;
+  width: 9%;
+  top: 85%;          /* 버튼 아래로 완전히 이동 */
+  right: 20px;        /* 버튼 정렬과 일치 */
+  margin-top: 10px;    /* 버튼과 약간 간격 */
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+/* 메인 레이아웃 */
+main {
+  width: 100%;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;     /* 세로 방향 정렬 */
+  align-items: center;        /* 가로 중앙 정렬 */
+  justify-content: center;    /* 세로 중앙 정렬 (자식 정렬용) */
+}
+
+.background-wrapper {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background-image: url('../images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  margin-top: 100px; /* 헤더 높이만큼 내리기 */
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(4px); /* 💡 요게 핵심 */
+  z-index: 1;
+}
+.background-text {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2; /* overlay보다 위에 있어야 함 */
+  color: #7B5E57;
+  font-family: 'Yomogi', cursive;
+  font-weight: bold;
+  font-size: 36px;
+  text-align: center;
+}
+
+/* 설명부분 */
+.product-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 20px;
+  font-family: 'Yomogi', sans-serif;
+}
+
+.product-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 12px;
+  align-items: center;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  font-family: 'Yomogi', cursive;
+  transition: transform 0.3s ease;
+}
+.product-image:hover{
+  transform: scale(1.03);
+  cursor: url('../images/ball2.png') 32 32, auto;
+}
+.product-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.product-image figcaption {
+  margin-top: 10px;
+  padding: 0 12px 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.5;
+  color: #555;
+  font-family: 'Yomogi', cursive;
+}
+
+.semi-title1{
+  text-align: left; 
+  margin-bottom: 20px;
+  font-family: 'Yomogi', cursive;
+}
+.semi-title1 h3 {
+  font-size: 1.8rem;
+  color: #333;
+  border-bottom: 2px solid #7B5E57;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.product-features {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  gap: 20px;
+  flex-wrap: wrap;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.feature img{
+  width: 100%;
+  max-width: 200px;
+  height: 100%;
+  max-height: 280px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+.feature {
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+  /* background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); */
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+.feature:hover{
+  transform: scale(1.03);
+  cursor: url('../images/ball2.png') 32 32, auto;
+}
+.feature h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* aside */
+.sub-title{
+  font-size: 1.375rem;
+  padding: 0 8px 8px;
+  border-bottom: 2px #7B5E57 solid;
+  font-weight: normal;
+}
+aside p{
+  padding: 12px 10px;
+}
+.sub-menu{
+  margin-bottom: 60px;
+  list-style: none;
+}
+.sub-menu li{
+  border-bottom: 1px #e4d1af solid;
+}
+.sub-menu a{
+  color: #333;
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  color: inherit; /* 링크 색상도 기본 텍스트 색상으로 */
+}
+
+.sub-menu a:hover{
+  color: #ccc;
+  cursor: url('../images/ball2.png') 32 32, auto;
+}
+/* aside 옆부분 조정 */
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* footer */
+footer{
+  background: #e4d1af;
+  text-align: center;
+  padding: 26px 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+footer p{
+  color: #7B5E57;
+  font-size: 0.875rem;
+  font-family: 'Yomogi', sans-serif;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 1.8s ease-out forwards;
+}
+/* 페이드 아웃 효과 */
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-in-start {
+  opacity: 0;
+  animation: fadeInStart 1s ease-in-out forwards;
+}
+
+@keyframes fadeInStart {
+  to {
+    opacity: 1;
+  }
+}
+
+/* 600px 이하 화면용 반응형 디자인 */
+@media screen and (max-width: 600px) {
+  body {
+    padding: 0 10px;
+    background-size: cover;
+    background-position: center;
+  }
+
+   .menu-toggle {
+    display: block;
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    font-size: 1rem;
+    padding: 8px 12px;
+    background-color: #fff;
+    border: 2px solid #333;
+    border-radius: 8px;
+    cursor: url('../images/ball2.png') 32 32, auto;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    right: 10px;
+    width: 27%;
+    margin-top: -10px;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    opacity: 0;
+    cursor: url('../images/ball2.png') 32 32, auto;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+  .dropdown-menu.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .dropdown-menu ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .dropdown-menu li{
+    margin: 0;
+  }
+  .dropdown-menu a {
+    display: block;
+    padding: 8px 18px;
+    font-size: 18px;
+    color: #333;
+    font-family: 'Yomogi', cursive;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    line-height: 1.6;
+  }
+
+  .dropdown-menu a:hover {
+    background-color: #eee;
+    border-radius: 8px; 
+  }
+
+ .main-nav {
+    list-style: none;
+    flex-direction: column;
+    display: none;/* 원래 메뉴 숨기기 */
+  }
+ 
+ .background-wrapper {
+    height: 300px; /* 더 작은 높이로 조정 */
+    margin-top: 80px; /* 모바일에서 여백 조정 */
+    padding: 0 10px;
+  }
+
+  .background-text {
+    font-size: 20px;   /* 글씨 크기 줄이기 */
+    top: 60%;          /* 살짝 아래로 */
+    padding: 0 10px;   /* 좌우 여백 확보 */
+  }
+
+  #profile {
+    flex-direction: column;
+    width: 90%;
+    padding: 10% 5%;
+  }
+
+  #profile img {
+    width: 100px;
+    margin-bottom: 10px;
+  }
+
+  #profile p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  footer {
+    padding: 0 10px;
+  }
+
+  footer p {
+    font-size: 0.75rem;
+  }
+  .content-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  aside {
+    width: 100%;
+    margin-top: 20px;
+  }
+}
