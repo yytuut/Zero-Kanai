@@ -43,18 +43,18 @@
             </div>
         </div>
       <div class="content-wrapper">
-      <div class="product-section">
+      <div class="product-section" class="scroll-fade-in">
       <!-- 부산일본인회 사진 -->
       <a href="https://kashiwa-tech.co.jp/en/" target="_blank" style="text-decoration: none; color: inherit;">
       <figure class="product-image">
           <img src="images/kasiwa-logo.png" alt="카시와테크코리아">
           <figcaption>カシワテックは1947年の創業以来、船舶に搭載される消火、防災製品の開発、設計を行い、<br>国内外の造船所・船主への販売を通じて「船舶総合消火防災メーカー」という独自の道を歩んでいます。</figcaption>
       </figure></a>
-      <div class="semi-title1">
+      <div class="semi-title1" class="scroll-fade-in">
         <h3>主な活動</h3>
       </div>
       <!-- 설명 영역 -->
-     <div class="product-features">
+     <div class="product-features" class="scroll-fade-in">
         <div class="feature">
           <h3>放水銃</h3>
           <img id="kasi" src="images/housui.png" alt="방수총">
@@ -69,10 +69,8 @@
         <div class="feature">
           <h3>高膨張泡消火装置</h3>
           <img id="kasi" src="images/asyou.png" alt="거품">
-          <p>エンジンルームで火災が発生した時、泡で火を包み込み、火を消す装置。</p>
+          <p>ボイラーの排ガスを綺麗にすることで、異様分や煤を除去し、そのガスを重油タンカのカーボタンクの中に入れ込む装置。</p>
         </div>
-
-        
       </div><!--product-features-->
       </div><!--product-section-->
     <aside>
@@ -95,8 +93,22 @@
     const menu = document.getElementById('dropdown-menu');
     menu.classList.toggle('show');
   }
+  document.addEventListener('DOMContentLoaded', function () {
+    const elements = document.querySelectorAll('.scroll-fade-in');
+
+    function checkScroll() {
+      elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkScroll);
+    checkScroll(); // 초기 로딩 시에도 체크
+  });
 </script>
 
 </html>
-
 

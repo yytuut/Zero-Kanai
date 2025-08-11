@@ -43,7 +43,7 @@
             </div>
         </div>
       <div class="content-wrapper">
-      <div class="product-section">
+      <div class="product-section" class="scroll-fade-in">
       <!-- 부산일본인회 사진 -->
       <a href="https://busanja.com/" target="_blank" style="text-decoration: none; color: inherit;">
       <figure class="product-image">
@@ -51,11 +51,11 @@
           <figcaption>釜山日本人会は、釜山等韓国東南部に居住されている方を中心とした<br>
             日本人コミュニティーで、１９７２年８月に発足しました。</figcaption>
       </figure></a>
-      <div class="semi-title1">
+      <div class="semi-title1" class="scroll-fade-in">
         <h3>主な活動</h3>
       </div>
       <!-- 설명 영역 -->
-      <div class="product-features">
+      <div class="product-features" class="scroll-fade-in">
         <div class="feature">
           <h3>釜山日本人学校</h3>
     
@@ -107,6 +107,21 @@
     const menu = document.getElementById('dropdown-menu');
     menu.classList.toggle('show');
   }
+  document.addEventListener('DOMContentLoaded', function () {
+    const elements = document.querySelectorAll('.scroll-fade-in');
+
+    function checkScroll() {
+      elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkScroll);
+    checkScroll(); // 초기 로딩 시에도 체크
+  });
 </script>
 
 </html>

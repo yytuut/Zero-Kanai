@@ -43,19 +43,59 @@
             </div>
         </div>
         <div class="content-wrapper">
-        <section id="profile"> 
-            <img src="images/cheongheazin.jpg" alt="청해진단체사진">
-            <div class="profile-text">
-                <p><strong>名前：</strong>金井 太一</p>
-                <p><strong>生年度：</strong>1978年</p>
-                <p><strong>出身地：</strong>横浜市</p>
-                <p><strong>所属：</strong>株式会社カシワコリア</p>
-                <p class="indent">技術営業部 次長</p>
-                <p class="indent">釜山日本人会 会長</p>
-                <p><strong>趣味：</strong>ゴルフ、野球、テニス</p>
+        <section id="cheong" class="scroll-fade-in"> 
+            <div class="slider">
+                <div class="slides">
+                    <!-- 마지막 이미지 복제 -->
+                    <img src="images/cheongheazin8.jpg" alt="청해진 사진8" class="clone">
+                    <!-- 실제 이미지들 -->
+                    <img src="images/cheongheazin.jpg" alt="청해진 사진">
+                    <img src="images/cheongheazin1.jpg" alt="청해진 사진1">
+                    <img src="images/cheongheazin2.jpg" alt="청해진 사진2">
+                    <img src="images/cheongheazin3.jpg" alt="청해진 사진3">
+                    <img src="images/cheongheazin4.jpg" alt="청해진 사진4">
+                    <img src="images/cheongheazin5.jpg" alt="청해진 사진5">
+                    <img src="images/cheongheazin6.jpg" alt="청해진 사진6">
+                    <img src="images/cheongheazin7.jpg" alt="청해진 사진7">
+                    <img src="images/cheongheazin8.jpg" alt="청해진 사진8">
+                    <!-- 첫 번째 이미지 복제 -->
+                    <img src="images/cheongheazin.jpg" alt="청해진 사진" class="clone">
+                </div>
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+                <div class="dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
             </div>
-        </section>
-        </section>
+            <section id="profile" class="scroll-fade-in"> 
+                <h3 class="cheong-setumei">靑海進とは</h3>
+                <p>青年海外進出の略語で、若者の海外研修をサポートする研修。<br>
+                アメリカ、ベトナムなど、様々な青年海外進出研修がある。<br>
+                当研修は、現地文化の理解を踏まえ、日本のIT企業にふさわしい人材を養い、<br>
+                日本IT分野に進出させる研修。日本語能力の向上、<br>
+                IT業界と基礎的なIT知識の理解を目標としている。
+                </p>
+            </section>
+            <section id="profile" class="scroll-fade-in"> 
+                <h3 class="cheong-setumei">当プロジェクトの目的</h3>
+                <p>日本語能力と基礎的プログラミング言語の理解を向上させるため。<br>
+                また、インタビューを通じ、心の奥にいる不安を解決し、視野を広げるため。
+                </p>
+            </section>
+            <section id="profile" class="scroll-fade-in"> 
+                <h3 class="cheong-setumei">当WEBページの目的</h3>
+                <p>金井さんのこれまでの経験からこれからリーダになる私たち学生の不安を解除させる。
+                </p>
+            </section>
+        </section><!--cheong-->
     <aside>
       <h3 class="sub-title">概要</h3>
       <ul class="sub-menu">
@@ -72,11 +112,108 @@
     </footer>
 </body>
 <script>
+  // 모바일 메뉴 토글
   function toggleMenu() {
     const menu = document.getElementById('dropdown-menu');
     menu.classList.toggle('show');
   }
-</script>
 
+  // 모든 기능은 DOM이 로드된 후 실행
+  document.addEventListener('DOMContentLoaded', function () {
+    // 스크롤 애니메이션
+    const elements = document.querySelectorAll('.scroll-fade-in');
+    function checkScroll() {
+      elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', checkScroll);
+    checkScroll(); // 초기 로딩 시에도 체크
+
+    // 슬라이더 기능
+    const slider = document.querySelector('.slider');
+    const slides = document.querySelector('.slides');
+    const slideImages = document.querySelectorAll('.slides img');
+    const dots = document.querySelectorAll('.dot');
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+
+    const totalSlides = dots.length;
+    let index = 1; // 첫 번째 실제 이미지부터 시작
+    let slideWidth = slider.offsetWidth;
+
+    // 이미지 로딩 후 슬라이드 초기 위치 설정
+    window.addEventListener('load', () => {
+      slideWidth = slider.offsetWidth;
+      slides.style.transition = 'none';
+      slides.style.transform = `translateX(-${slideWidth * index}px)`;
+    });
+
+    // 창 크기 변경 시 슬라이드 너비 재계산
+    window.addEventListener('resize', () => {
+      slideWidth = slider.offsetWidth;
+      slides.style.transition = 'none';
+      slides.style.transform = `translateX(-${slideWidth * index}px)`;
+    });
+
+    function updateDots(i) {
+        dots.forEach(dot => dot.classList.remove('active'));
+        const dotIndex = (i - 1 + totalSlides) % totalSlides;
+        dots[dotIndex].classList.add('active');
+    }
+
+
+    function moveToSlide(i) {
+      slides.style.transition = 'transform 0.5s ease-in-out';
+      slides.style.transform = `translateX(-${slideWidth * i}px)`;
+      updateDots(i);
+    }
+
+    function nextSlide() {
+      index++;
+      moveToSlide(index);
+      if (index === totalSlides + 1) {
+        setTimeout(() => {
+          slides.style.transition = 'none';
+          index = 1;
+          slides.style.transform = `translateX(-${slideWidth * index}px)`;
+          updateDots(index);
+        }, 500);
+      }
+    }
+
+    function prevSlide() {
+      index--;
+      moveToSlide(index);
+      if (index === 0) {
+        setTimeout(() => {
+          slides.style.transition = 'none';
+          index = totalSlides;
+          slides.style.transform = `translateX(-${slideWidth * index}px)`;
+          updateDots(index);
+        }, 500);
+      }
+    }
+
+    next.addEventListener('click', nextSlide);
+    prev.addEventListener('click', prevSlide);
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        index = i + 1;
+        moveToSlide(index);
+      });
+    });
+
+    // 자동 슬라이드
+    setInterval(nextSlide, 4000);
+
+    // 초기화
+    updateDots(index);
+  });
+</script>
 </html>
 
