@@ -43,21 +43,55 @@
             </div>
         </div>
         <div class="content-wrapper">
-        <section id="profile"> 
-            <img src="images/ball1.png" alt="kanai">
-            <p>コーパス言語学とは、<br>
-                単語別に<br>
-                なんだかんだして<br>
-                なんだかんだという結論を<br>
-                出す学問<br>
-                認知言語学といとなる<br>
-            </p>
+        <div class="main-column">
+        <section id="profile" class="scroll-fade-in"> 
+            <img src="images/kanaitouzan.jpg" alt="kanai_profile">
+            <div class="profile-text">
+                <p><strong>名前：</strong>金井 太一</p>
+                <p><strong>生年度：</strong>1978年</p>
+                <p><strong>出身地：</strong>横浜市</p>
+                <p><strong>所属：</strong>株式会社カシワコリア</p>
+                <p class="indent">技術営業部 次長</p>
+                <p class="indent">釜山日本人会 会長</p>
+                <p><strong>趣味：</strong>ゴルフ、野球、テニス</p>
+            </div>
         </section>
+        <section id="qa-section" class="scroll-fade-in">
+            <h3 class="qa-title">Q&A</h3>
+            <div class="qa-item">
+            <div class="question" onclick="toggleAnswer(this)">
+                <span class="icon">▶</span>
+                <strong>Q:</strong> なぜ釜山に住んでいるのですか？
+            </div>
+            <div class="answer-wrapper">
+                <p class="answer"><strong>A:</strong> カシワコリアの業務拠点が釜山にあり、地域との交流も深めたいと思ったからです。</p>
+            </div>
+            </div>
+            <div class="qa-item">
+            <div class="question" onclick="toggleAnswer(this)">
+            <span class="icon">▶</span>
+            <strong>Q:</strong> 趣味の中で一番好きなのは？
+            </div>
+            <div class="answer-wrapper">
+            <p class="answer"><strong>A:</strong> ゴルフです。週末にはよくコースに出かけています。</p>
+            </div>
+            </div>
+            <div class="qa-item">
+            <div class="question" onclick="toggleAnswer(this)">
+            <span class="icon">▶</span>
+            <strong>Q:</strong> 日本人会ではどんな活動をしていますか？
+            </div>
+            <div class="answer-wrapper">
+            <p class="answer"><strong>A:</strong> 地域イベントの企画や、日本語教育支援などを行っています。</p>
+            </div>
+            </div>
+        </section>
+        </div><!--main-column--->
     <aside>
       <h3 class="sub-title">主人公の紹介</h3>
       <ul class="sub-menu">
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
+        <li><a href="#">소개</a></li>
+        <li><a href="#">Q&A</a></li>
         <li><a href="#">3</a></li>
         <li><a href="#">4</a></li>
       </ul>
@@ -73,7 +107,36 @@
     const menu = document.getElementById('dropdown-menu');
     menu.classList.toggle('show');
   }
-</script>
+  function toggleAnswer(element) {
+    const wrapper = element.nextElementSibling;
+    const icon = element.querySelector('.icon');
 
+    wrapper.classList.toggle('open');
+
+    // 아이콘 변경
+    if (wrapper.classList.contains('open')) {
+      icon.textContent = '▼';
+    } 
+    else {
+      icon.textContent = '▶';
+    }
+}
+document.addEventListener('DOMContentLoaded', function () {
+    const elements = document.querySelectorAll('.scroll-fade-in');
+
+    function checkScroll() {
+      elements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', checkScroll);
+    checkScroll(); // 초기 로딩 시에도 체크
+  });
+
+</script>
 </html>
 

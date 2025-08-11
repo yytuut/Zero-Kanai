@@ -309,7 +309,6 @@ aside p{
 /* aside 옆부분 조정 */
 .content-wrapper {
   display: flex;
-  flex-wrap: wrap; /* 줄바꿈 허용 */
   justify-content: space-between;
   align-items: flex-start;
   gap: 30px;

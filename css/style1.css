@@ -178,13 +178,13 @@ main {
 /* 프로필 섹션 */
 #profile {
   background-color: #fff;
-  border-radius: 8%;
-  width: 70%;
+  border-radius: 12px;
+  width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  padding: 10%;
+  align-items: flex-start; /* 이미지와 텍스트 위쪽 정렬 */
+  justify-content: flex-start;
+  gap: 30px;
+  padding: 40px;
   margin-top: 30px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* 살짝 그림자 효과 */
   box-sizing: border-box;
@@ -194,15 +194,90 @@ main {
 #profile img {
   width: 150px;
   height: auto;
+  flex-shrink: 0; /* 이미지 크기 고정 */
 }
 
-/* 중앙정렬용 텍스트 */
-#profile p {
-  text-align: center;
-  margin: 0;
-  line-height: 1.6;
+/* 텍스트 영역 */
+.profile-text {
+  text-align: left;
+  flex: 1;
 }
+
+.profile-text p {
+  margin: 6px 0;
+  line-height: 1.6;
+  font-size: 18px;
+  color: #333;
+  text-align: left;
+}
+/* 들여쓰기용 클래스 */
+.profile-text .indent {
+  margin-left: 53px; /* 들여쓰기 */
+  font-size: 18px;
+  color: #333;
+}
+/* Q&A 섹션 */
+#qa-section {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 40px;
+  margin-top: 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 1200px;
+  box-sizing: border-box;
+}
+
+.qa-title {
+  font-size: 1.8rem;
+  font-family: 'Yomogi', cursive;
+  color: #7B5E57;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e4d1af;
+  padding-bottom: 10px;
+}
+
+.qa-item {
+  margin-bottom: 1em;
+}
+
+.question {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.question:hover {
+  color: #e4d1af;
+  cursor: url('../images/ball2.png') 32 32, auto;
+}
+
+.icon {
+  transition: transform 0.3s ease;
+}
+.icon:hover {
+  cursor: url('../images/ball2.png') 32 32, auto;
+}
+.answer-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.answer-wrapper.open {
+  max-height: 500px; /* 충분히 큰 값으로 설정 */
+}
+
+.answer {
+  margin: 0.5em 0 0 1.5em;
+}
+
 /* aside */
+aside {
+  flex: 1;
+  margin-top: 0;
+}
 .sub-title{
   font-size: 1.375rem;
   padding: 0 8px 8px;
@@ -240,6 +315,12 @@ aside p{
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
+}
+.main-column {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 /* footer */
 footer{
@@ -280,6 +361,17 @@ footer p{
 .fade-in-start {
   opacity: 0;
   animation: fadeInStart 1s ease-in-out forwards;
+}
+/* 스크롤 애니메이션 */
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.scroll-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @keyframes fadeInStart {
@@ -395,6 +487,19 @@ footer p{
   .content-wrapper {
     flex-direction: column;
     align-items: center;
+    padding: 1em;
+  }
+  .qa-title {
+    font-size: 1.2em;
+  }
+
+  .question {
+    font-size: 1em;
+    flex-wrap: wrap;
+  }
+
+  .answer {
+    font-size: 0.95em;
   }
 
   aside {
