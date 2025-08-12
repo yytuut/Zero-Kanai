@@ -394,7 +394,7 @@ aside p{
 .chat-row.right .speech-bubble::after {
   content: '';
   position: absolute;
-  top: 10%;
+  top: 45%;
   right: -19px;
   border: 10px solid transparent;
   border-left-color: #f0f0f0;
@@ -573,3 +573,4 @@ footer p{
   }
 
 }
+
