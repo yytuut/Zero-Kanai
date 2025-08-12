@@ -307,6 +307,13 @@ aside p{
   color: #ccc;
   cursor: url('../images/ball2.png') 32 32, auto;
 }
+/* 사이드바 목록 */
+#pro{
+  scroll-margin-top: 80px;
+}
+#QA{
+  scroll-margin-top: 80px;
+}
 /* aside 옆부분 조정 */
 .content-wrapper {
   display: flex;
