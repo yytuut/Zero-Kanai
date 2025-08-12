@@ -154,7 +154,7 @@ header{
 
 .dropdown-menu {
   position: absolute;
-  width: 9%;
+  width: 15%;
   top: 85%;          /* 버튼 아래로 완전히 이동 */
   right: 20px;        /* 버튼 정렬과 일치 */
   margin-top: 10px;    /* 버튼과 약간 간격 */
@@ -329,7 +329,7 @@ main {
 
   .dropdown-menu {
     right: 10px;
-    width: 27%;
+    width: 30%;
     margin-top: -10px;
   }
   .main-nav li {
