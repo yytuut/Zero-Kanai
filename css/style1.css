@@ -13,7 +13,7 @@ body {
     justify-content: center; /* 수평 중앙 정렬 */
     flex-direction: column;
     align-items: center;     /* 수직 중앙 정렬 */
-    height: 100vh;           /* 화면 전체 높이 */
+    min-height: 100vh; /* 이렇게 바꾸면 콘텐츠가 많을 때 스크롤 가능 */
     cursor: url('../images/ball1.png') 32 32, auto;
     background-color: #f6ecd9;
     background-attachment: fixed;
@@ -383,17 +383,18 @@ footer p{
 
 /* 600px 이하 화면용 반응형 디자인 */
 @media screen and (max-width: 600px) {
+  html, body {
+    overflow-x: hidden; /* 가로 스크롤 방지 */
+  }
   body {
-    padding: 0 10px;
+    padding: 0;
     background-size: cover;
     background-position: center;
   }
 
-   .menu-toggle {
+  .menu-toggle {
     display: block;
     position: fixed;
-    top: 15px;
-    right: 15px;
     font-size: 1rem;
     padding: 8px 12px;
     background-color: #fff;
@@ -459,21 +460,26 @@ footer p{
 
   .background-text {
     font-size: 20px;   /* 글씨 크기 줄이기 */
-    top: 60%;          /* 살짝 아래로 */
     padding: 0 10px;   /* 좌우 여백 확보 */
   }
 
   #profile {
-    flex-direction: column;
+    display: flex; /* 혹시 빠져있으면 추가 */
+    flex-direction: row; /* 이미지 왼쪽, 텍스트 오른쪽 유지 */
+    justify-content: center; /* 가로 중앙 정렬 */
     width: 90%;
     padding: 10% 5%;
+    margin: 0 auto; /* 박스를 가운데로 */
+    gap: 5px;
   }
 
   #profile img {
-    width: 100px;
+    max-width: 130px; /* 아무리 커져도 이 이상은 안 커짐 */
     margin-bottom: 10px;
   }
-
+  #profile-text{
+    margin-left: 5px;
+  }
   #profile p {
     font-size: 14px;
     line-height: 1.4;

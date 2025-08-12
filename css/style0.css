@@ -249,6 +249,7 @@ main {
   display: inline-block;
   font-size: 2rem;
   font-weight: bold;
+  margin-top: -5px;
   margin-bottom: 20px;
   border-bottom: 2px solid #e4d1af;
   padding-bottom: 10px;
@@ -286,6 +287,17 @@ aside p{
   color: #ccc;
   cursor: url('../images/ball2.png') 32 32, auto;
 }
+/* 사이드바 목록 */
+#cheong-about{
+  scroll-margin-top: 80px;
+}
+#pro-moku{
+  scroll-margin-top: 80px;
+}
+#WEB-moku {
+  scroll-margin-top: 80px;
+}
+
 /* aside 옆부분 조정 */
 .content-wrapper {
   display: flex;
@@ -359,7 +371,7 @@ footer p{
     overflow-x: hidden; /* 가로 스크롤 방지 */
   }
   body {
-    padding: 0 10px;
+    padding: 0;
     background-size: cover;
     background-position: center;
   }
@@ -367,8 +379,6 @@ footer p{
    .menu-toggle {
     display: block;
     position: fixed;
-    top: 15px;
-    right: 15px;
     font-size: 1rem;
     padding: 8px 12px;
     background-color: #fff;
@@ -434,7 +444,6 @@ footer p{
 
   .background-text {
     font-size: 20px;   /* 글씨 크기 줄이기 */
-    top: 60%;          /* 살짝 아래로 */
     padding: 0 10px;   /* 좌우 여백 확보 */
   }
 

@@ -288,6 +288,9 @@ main {
 
 /* 600px 이하 화면용 반응형 디자인 */
 @media screen and (max-width: 600px) {
+  html, body {
+    overflow-x: hidden; /* 가로 스크롤 방지 */
+  }
   body {
     padding: 0 10px;
     background-size: cover;
@@ -297,7 +300,13 @@ main {
     margin-top: 20px; /* 모바일에서는 위로 올리기 */
     font-weight: bold;
   }
-
+  main {
+    padding-top: 100px; /* 헤더 높이만큼 여백 추가 */
+    padding-bottom: 100px;
+  }
+  .start-background {
+    min-height: 120vh; /* 모바일에서 좀 더 길게 설정 */
+  }
   .page-title {
     font-size: 40px;
     margin-top: 60px;
@@ -311,8 +320,6 @@ main {
   }
 
   .menu-toggle {
-    top: 15px;
-    right: 15px;
     font-size: 1rem;
     padding: 8px 12px;
   }

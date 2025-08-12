@@ -13,7 +13,7 @@ body {
     justify-content: center; /* 수평 중앙 정렬 */
     flex-direction: column;
     align-items: center;     /* 수직 중앙 정렬 */
-    height: 100vh; 
+    min-height: 100vh; /* 이렇게 바꾸면 콘텐츠가 많을 때 스크롤 가능 */
     cursor: url('../images/ball1.png') 32 32, auto;
     background-color: #f6ecd9;
     background-attachment: fixed;
@@ -238,9 +238,9 @@ main {
   margin-top: 30px;
   gap: 20px;
   flex-wrap: wrap;
-  background-color: #fff;
+  /* background-color: #fff;
   border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); */
 }
 
 .feature img{
@@ -255,9 +255,9 @@ main {
   flex: 1;
   min-width: 250px;
   text-align: center;
-  /* background-color: #fff;
+  background-color: #fff;
   border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); */
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   padding: 20px;
   transition: transform 0.3s ease;
 }
@@ -270,6 +270,9 @@ main {
   font-weight: bold;
   margin-bottom: 10px;
 }
+.feature a{
+   cursor: url('../images/ball2.png') 32 32, auto;
+} 
 
 .feature p {
   font-size: 14px;
@@ -376,6 +379,9 @@ footer p{
 
 /* 600px 이하 화면용 반응형 디자인 */
 @media screen and (max-width: 600px) {
+  html, body {
+    overflow-x: hidden; /* 가로 스크롤 방지 */
+  }
   body {
     padding: 0 10px;
     background-size: cover;
@@ -385,8 +391,6 @@ footer p{
    .menu-toggle {
     display: block;
     position: fixed;
-    top: 15px;
-    right: 15px;
     font-size: 1rem;
     padding: 8px 12px;
     background-color: #fff;
@@ -452,7 +456,6 @@ footer p{
 
   .background-text {
     font-size: 20px;   /* 글씨 크기 줄이기 */
-    top: 60%;          /* 살짝 아래로 */
     padding: 0 10px;   /* 좌우 여백 확보 */
   }
 
@@ -471,6 +474,7 @@ footer p{
     font-size: 14px;
     line-height: 1.4;
   }
+  
   footer {
     padding: 0 10px;
   }
