@@ -48,21 +48,24 @@
           <img src="images/ball2.png" alt="권대환" class="popup-trigger"
           data-popup="images/Kwondaehwan.jpg"
           data-name="グォン・デファン"
-          data-desc="日本語融合学部　日本IT専攻">
+          data-desc="日本語融合学部　日本IT専攻"
+          data-comment="">
           <p>グォン・デファン / 權大奐</p>
         </div>
         <div class="intro-card">
           <img src="images/ball2.png" alt="이준용" class="popup-trigger"
           data-popup="images/Leejunyong.jpg"
           data-name="イ・ジュンヨン"
-          data-desc="日本語融合学部　日本IT専攻">
+          data-desc="日本語融合学部　日本IT専攻"
+          data-comment="">
           <p>イ・ジュンヨン / 李俊鏞</p>
         </div>
         <div class="intro-card">
           <img src="images/ball2.png" alt="최윤정" class="popup-trigger"
           data-popup="images/ChoiYunJeong.jpg"
           data-name="チェ・ユンジョン"
-          data-desc="中国学部　中国語専攻">
+          data-desc="中国学部　中国語専攻"
+          data-comment="">
           <p>チェ・ユンジョン / 崔允貞</p>
         </div>
       </div><!--intro-cards-wrapper-->
@@ -83,12 +86,16 @@
     <!-- 팝업 오버레이 (화면 전체) -->
     <div id="popup-overlay" class="popup-overlay">
       <div class="popup-content">
-        <span class="popup-close">×</span>
-        <button class="popup-arrow popup-arrow-left">‹</button> <!-- 왼쪽 화살표 -->
         <img id="popup-image" src="" alt="팀원 소개 프로필 사진">
-        <button class="popup-arrow popup-arrow-right">›</button> <!-- 오른쪽 화살표 -->
         <h3 id="popup-name"></h3>
+        <div id="popup-page-wrapper">
         <p id="popup-desc"></p>
+        <p id="popup-comment" class="popup-extra"></p>
+        <div id="popup-extra-content" style="display:none;"></div>
+        </div><!--popup-page-wrapper-->
+        <button class="popup-arrow popup-arrow-left">‹</button> <!-- 왼쪽 화살표 -->
+        <button class="popup-arrow popup-arrow-right">›</button> <!-- 오른쪽 화살표 -->
+        <span class="popup-close">×</span>
       </div>
     </div>
 </body>
