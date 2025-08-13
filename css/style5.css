@@ -175,110 +175,150 @@ main {
   font-size: 36px;
   text-align: center;
 }
-
-/* 설명부분 */
-.product-section {
-  max-width: 1000px;
-  margin: 0 auto;
-  text-align: center;
-  padding: 40px 20px;
-  font-family: 'Yomogi', sans-serif;
-}
-
-.product-image {
+/* 소개 프로필 */
+.intro-cards-wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 30px;
+  gap: 40px;          /* 카드들 사이 간격 */
+  justify-content: center; /* 가운데 정렬 */
+  flex-wrap: nowrap;  /* 한 줄로 유지 (필요시 wrap 가능) */
+  overflow-x: auto;   /* 가로 스크롤 가능하게 */
+  padding: 20px 0;
+}
+.intro-card {
+  width: 280px;
+  text-align: center;
   padding: 20px;
+  border: 2px solid #e4d1af;
   border-radius: 12px;
-  align-items: center;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
   background-color: #fff;
-  font-family: 'Yomogi', cursive;
-  transition: transform 0.3s ease;
-}
-.product-image:hover{
-  transform: scale(1.03);
-  cursor: url('../images/ball2.png') 32 32, auto;
-}
-.product-image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.product-image figcaption {
-  margin-top: 10px;
-  padding: 0 12px 12px;
-  font-size: 1.1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   font-weight: bold;
-  text-align: center;
-  line-height: 1.5;
-  color: #555;
-  font-family: 'Yomogi', cursive;
 }
 
-.semi-title1{
-  text-align: left; 
-  margin-bottom: 20px;
-  font-family: 'Yomogi', cursive;
-}
-.semi-title1 h3 {
-  font-size: 1.8rem;
-  color: #333;
-  border-bottom: 2px solid #7B5E57;
-  display: inline-block;
-  padding-bottom: 8px;
-}
-
-.product-features {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 30px;
-  gap: 20px;
-  flex-wrap: wrap;
-  /* background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); */
-}
-
-.feature img{
+.intro-card img {
   width: 100%;
-  max-width: 200px;
-  height: 100%;
-  max-height: 280px;
-  border-radius: 8px;
-  margin-bottom: 12px;
-}
-.feature {
-  flex: 1;
-  min-width: 250px;
-  text-align: center;
-  background-color: #fff;
   border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-  padding: 20px;
   transition: transform 0.3s ease;
 }
-.feature:hover{
-  transform: scale(1.03);
+
+.intro-card img:hover {
+  transform: scale(1.05);
   cursor: url('../images/ball2.png') 32 32, auto;
 }
-.feature h3 {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 10px;
+
+/* 팝업 오버레이 */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.3);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
 }
-.feature a{
-   cursor: url('../images/ball2.png') 32 32, auto;
-} 
-.feature p {
-  font-size: 14px;
-  line-height: 1.6;
+/* 흐림 효과 줄 때 쓸 공통 클래스 */
+.blur-background {
+  filter: blur(6px);
+  transition: filter 0.3s ease;
+}
+/* 팝업 콘텐츠 */
+.popup-content {
+  position: relative;
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  animation: zoomIn 0.4s ease forwards;
+}
+
+.popup-content img {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  transform: scale(0.7);
+  opacity: 0;
+  animation: zoomIn 0.4s ease forwards;
+}
+
+.popup-content h3 {
+  font-size: 1.5rem;
+  margin: 10px 0 5px;
+  font-family: 'Yomogi', cursive;
   color: #333;
 }
 
+.popup-content p {
+  font-size: 1rem;
+  font-family: 'Yomogi', sans-serif;
+  color: #666;
+}
+/* 팝업창 화살표 */
+.popup-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.3);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  width: 40px;
+  height: 60px;
+  cursor: pointer;
+  border-radius: 8px;
+  user-select: none;
+  z-index: 20;
+}
+
+.popup-arrow-left {
+  left: 10px;
+}
+
+.popup-arrow-right {
+  right: 10px;
+}
+/* 닫기 버튼 */
+.popup-close {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 50%; /* 완전한 원 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: transform 0.4s ease;
+}
+
+/* 마우스 오버 시 회전 */
+.popup-close:hover {
+  transform: rotate(360deg);
+  cursor: url('../images/ball2.png') 32 32, auto;
+}
+
+/* 확대 애니메이션 */
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
 /* aside */
 .sub-title{
   font-size: 1.375rem;
@@ -457,22 +497,6 @@ footer p{
     font-size: 20px;   /* 글씨 크기 줄이기 */
     padding: 0 10px;   /* 좌우 여백 확보 */
   }
-
-  #profile {
-    flex-direction: column;
-    width: 90%;
-    padding: 10% 5%;
-  }
-
-  #profile img {
-    width: 100px;
-    margin-bottom: 10px;
-  }
-
-  #profile p {
-    font-size: 14px;
-    line-height: 1.4;
-  }
   
   footer {
     padding: 0 10px;
@@ -489,5 +513,38 @@ footer p{
   aside {
     width: 100%;
     margin-top: 20px;
+  }
+  /* 소개 프로필 */
+  .intro-cards-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px;
+  }
+  .intro-card {
+    flex: 0 0 150px; 
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  .intro-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+  .intro-card p {
+    font-size: 0.75rem;
+    margin-top: 4px;
+  }
+  .popup-content {
+    max-width: 90%;
+    padding: 15px;
+  }
+  .popup-content img {
+    max-height: 200px;
+  }
+  .popup-content h3 {
+    font-size: 1.2rem;
+  }
+  .popup-content p {
+    font-size: 0.85rem;
   }
 }
