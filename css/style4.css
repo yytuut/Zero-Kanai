@@ -291,6 +291,12 @@ main {
 }
 
 /* aside */
+
+aside {
+  flex: 1;
+  margin-top: 0;
+}
+
 .sub-title {
   font-size: 1.375rem;
   padding: 0 8px 8px;
@@ -333,7 +339,7 @@ aside p {
   justify-content: space-between;
   align-items: flex-start;
   gap: 30px;
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 0 auto;
   padding: 40px 20px;
 }
