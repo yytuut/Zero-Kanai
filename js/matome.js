@@ -50,8 +50,17 @@ const teamMembers = [
     name: "グォン・デファン",
     pages: [
       { desc: "日本語融合学部　日本IT専攻" }, // 첫 페이지
-      { desc: "好きなアニメ: スパイファミリー", comment: "もっと旅行したい！" },
-      { extraContent: "<h4>追加情報</h4><p>新しい内容をここに自由に記載できます。</p>" }
+      { desc: "<h3>プロフィール</h3>", 
+        comment: `
+        <p><strong>生年月日：</strong>2001年9月5日</p>
+        <p><strong>出身地：</strong>仁川広域市</p>
+        <p><strong>MBTI：</strong>ENFJ</p>
+        <p><strong>趣味：</strong>サッカー観戦、カラオケ🎤</p>
+        <p><strong>E-mail：</strong>hahohaho1342@gmail.com</p>
+        <p><strong>一言：</strong>アーメン</p>
+      `
+     },
+      { extraContent: "<h3>感想</h3><p>大変</p>"}
     ]
   },
   {
@@ -65,9 +74,9 @@ const teamMembers = [
         <p><strong>生年月日：</strong>2000年9月20日</p>
         <p><strong>出身地：</strong>淸州市</p>
         <p><strong>MBTI：</strong>ISTJ</p>
-        <p><strong>趣味：</strong>荷物整理</p>
+        <p><strong>趣味：</strong>荷物整理、バイト💰</p>
         <p><strong>E-mail：</strong>rnlcksgdmsdldirl8421@gmail.com</p>
-        <p><strong>一言：</strong>質素な生活</p>
+        <p><strong>一言：</strong>質素な生活!!</p>
       `
      },
       { extraContent: "<h3>感想</h3><p>大変</p>" }
@@ -78,8 +87,17 @@ const teamMembers = [
     name: "チェ・ユンジョン",
     pages: [
       { desc: "中国学部　中国語専攻" },
-      { desc: "好きな食べ物はラーメン", comment: "また来年も会いたい！" },
-      { extraContent: "<h4>ラーメンについて</h4><p>特に豚骨ラーメンが好きです。</p>" }
+      { desc: "<h3>プロフィール</h3>", 
+        comment: `
+        <p><strong>生年月日：</strong>2003年2月6日</p>
+        <p><strong>出身地：</strong>釜山広域市</p>
+        <p><strong>MBTI：</strong>ISFP</p>
+        <p><strong>趣味：</strong>読書📖、歌🎶、有酸素運動🏃</p>
+        <p><strong>E-mail：</strong>hiri1229@office.bufs.ac.kr</p>
+        <p><strong>一言：</strong>当たって砕けろ</p>
+      `
+     },
+      { extraContent: "<h3>感想</h3><p>大変</p>" }
     ]
   }
 ];
