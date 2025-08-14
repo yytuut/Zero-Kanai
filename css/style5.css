@@ -384,7 +384,12 @@ aside p{
   margin: 0 auto;
   padding: 40px 20px;
 }
-
+.content-wrapper > aside {
+  width: 250px; /* 적당한 너비 */
+  position: sticky; /* 스크롤 시 따라 내려오도록 */
+  top: 120px; /* 헤더 높이만큼 띄우기 */
+  align-self: flex-start; /* 세로 정렬 시작점 맞추기 */
+}
 /* footer */
 footer{
   background: #e4d1af;
@@ -494,7 +499,7 @@ footer p{
   .dropdown-menu {
     position: absolute;
     right: 10px;
-    width: 30%;
+    width: 34%;
     margin-top: -10px;
     background-color: #f8f8f8;
     border: 1px solid #ccc;
