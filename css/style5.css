@@ -345,6 +345,32 @@ main {
     opacity: 1;
   }
 }
+/*부산 일본인회 기사*/
+.leader{
+  min-width: 250px;
+  max-width: 800px;
+  text-align: left; /* 안의 글은 왼쪽 정렬 */
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  padding: 20px 70px;
+  transition: transform 0.3s ease;
+}
+
+
+.semi-title1{
+   width: 100%;        /* content-wrapper 안에서 전체 폭 */
+  text-align: left;    /* 글 왼쪽 정렬 */
+  margin-bottom: 20px;
+  font-family: 'Yomogi', cursive;
+}
+.semi-title1 h3 {
+  font-size: 1.8rem;
+  color: #333;
+  border-bottom: 2px solid #7B5E57;
+  display: inline-block;
+  padding-bottom: 8px;
+}
 /* aside */
 .sub-title{
   font-size: 1.375rem;
@@ -376,19 +402,24 @@ aside p{
 }
 /* aside 옆부분 조정 */
 .content-wrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 1fr auto;
   gap: 30px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
+  align-items: start;
+}.main-content{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center; /* 가로 중앙 정렬 */
 }
 .content-wrapper > aside {
-  width: 250px; /* 적당한 너비 */
-  position: sticky; /* 스크롤 시 따라 내려오도록 */
-  top: 120px; /* 헤더 높이만큼 띄우기 */
-  align-self: flex-start; /* 세로 정렬 시작점 맞추기 */
+  width: 250px;
+  position: sticky;
+  top: 120px;
+  align-self: flex-start;
 }
 /* footer */
 footer{
