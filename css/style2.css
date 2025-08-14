@@ -354,6 +354,7 @@ aside p{
 }
 
 .chat-row.left {
+  margin-top: 10px;
   justify-content: flex-start;
   gap: 20px;
 }
@@ -403,6 +404,42 @@ aside p{
 
 section{
   scroll-margin-top: 80px;
+}
+
+#st {
+  position: relative;
+  line-height: 1.4;
+  padding:0.25em 1em;
+  display: inline-block;
+}
+
+#st:before, #st:after { 
+  content:'';
+  width: 15px;
+  height: 18px;
+  position: absolute;
+  display: inline-block;
+}
+
+#st:before {
+  border-left: solid 2px #a38781;
+  border-top: solid 2px  #a38781;
+  top:0;
+  left: 0;
+}
+
+#st:after {
+  border-right: solid 2px #a38781;
+  border-bottom: solid 2px #a38781;
+  bottom:0;
+  right: 0;
+}
+
+.content-wrapper > aside {
+  width: 250px; /* 적당한 너비 */
+  position: sticky; /* 스크롤 시 따라 내려오도록 */
+  top: 120px; /* 헤더 높이만큼 띄우기 */
+  align-self: flex-start; /* 세로 정렬 시작점 맞추기 */
 }
 
 /* footer */
