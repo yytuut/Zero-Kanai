@@ -196,6 +196,26 @@ main {
   height: 400px;
   flex-shrink: 0;
 }
+#cheong2 .slider {
+  position: relative;
+  overflow: hidden;
+  width: 300px;
+  max-width: 400px;
+  margin: auto;
+}
+
+#cheong2 .slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+#cheong2 .slides img {
+  width: 100%;
+  height: auto;           /* 자동 높이로 잘림 방지 */
+  object-fit: contain;    /* 이미지 비율 유지 + 잘리지 않음 */
+  flex-shrink: 0;
+  display: block;
+}
 
 .prev, .next {
   position: absolute;
@@ -247,6 +267,7 @@ main {
   box-sizing: border-box;
   text-align: center;
 }
+
 .cheong-setumei{
   display: inline-block;
   font-size: 2rem;
