@@ -193,6 +193,7 @@ main {
 
 .slides img {
   width: 100%;
+  height: 400px;
   flex-shrink: 0;
 }
 
@@ -233,6 +234,7 @@ main {
 .dot.active {
   background-color: #7B5E57;
 }
+
 /* 프로필 섹션 */
 #profile {
   background-color: #fff;
@@ -307,6 +309,18 @@ aside p{
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
+}
+/* 본문 영역을 세로 정렬하도록 설정 */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.content-wrapper > aside {
+  width: 250px; /* 적당한 너비 */
+  position: sticky; /* 스크롤 시 따라 내려오도록 */
+  top: 120px; /* 헤더 높이만큼 띄우기 */
+  align-self: flex-start; /* 세로 정렬 시작점 맞추기 */
 }
 /* footer */
 footer{
@@ -390,7 +404,7 @@ footer p{
   .dropdown-menu {
     position: absolute;
     right: 10px;
-    width: 30%;
+    width: 34%;
     margin-top: -10px;
     background-color: #f8f8f8;
     border: 1px solid #ccc;
@@ -473,10 +487,18 @@ footer p{
     flex-direction: column;
     align-items: center;
   }
-
+  .main-content {
+  width: 100%;
+  max-width: 700px;
+  padding: 0 10px;
+  box-sizing: border-box;
+  }
   aside {
-    width: 100%;
-    margin-top: 20px;
+  width: 100%;
+  margin: 20px auto 0; /* 위 여백 주고, 중앙 정렬 */
+  position: static;    /* 모바일에선 sticky 비활성화 */
+  top: auto;
+  align-self: auto;
   }
   .background-wrapper,
   .slider,
@@ -485,8 +507,30 @@ footer p{
     max-width: 100%;
     box-sizing: border-box;
   }
+  /* 슬라이더 */
+  .slider {
+    width: 100%;
+    max-width: 100%;
+    margin: 20px auto;
+    border-radius: 12px;
+    overflow: hidden;  /* 둥근 모서리가 적용되도록 자식 요소 넘침 숨김 */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    min-width: 0;
+  }
   .slides img {
+    flex-shrink: 0;
+    min-width: 100%;
     width: 100%;
     height: auto;
+    object-fit: cover;
+    border-radius: 12px; /* 이미지도 모서리 둥글게 */
+  }
+  .prev, .next {
+    font-size: 20px;
+    padding: 8px;
   }
 }
