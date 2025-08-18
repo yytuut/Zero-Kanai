@@ -99,4 +99,5 @@ function initializeSlider(sliderSelector) {
 document.addEventListener('DOMContentLoaded', () => {
   initializeSlider('#cheong .slider');   // 첫 번째 슬라이더
   initializeSlider('#cheong1 .slider');  // 두 번째 슬라이더
+  initializeSlider('#cheong2 .slider');  // 세 번째 슬라이더
 });
