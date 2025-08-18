@@ -276,3 +276,9 @@ document.addEventListener('keydown', (e) => {
     arrowRight.click();
   }
 });
+//배경 아래 화살표
+document.getElementById('scroll-arrow').addEventListener('click', function() {
+    // 본문 영역의 시작 위치로 부드럽게 스크롤 (예: content-wrapper)
+    const content = document.querySelector('.content-wrapper');
+    content.scrollIntoView({ behavior: 'smooth' });
+});
