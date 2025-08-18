@@ -184,7 +184,7 @@ main {
     color: #7B5E57; 
     user-select: none;
     transition: transform 0.3s ease;
-    z-index: 9999;
+    z-index: 10;
 }
 
 .scroll-arrow:hover {
@@ -241,7 +241,6 @@ main {
   border: none;
   font-size: 24px;
   padding: 10px;
-  cursor: pointer;
   border-radius: 50%;
   z-index: 10;
   cursor: url('../images/ball2.png') 32 32, auto;
