@@ -175,6 +175,22 @@ main {
   font-size: 36px;
   text-align: center;
 }
+.scroll-arrow {
+    position: absolute;
+    bottom: 20px;  /* 아래에서 20px 위 */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 70px;
+    color: #7B5E57; 
+    user-select: none;
+    transition: transform 0.3s ease;
+    z-index: 9999;
+}
+
+.scroll-arrow:hover {
+    transform: translateX(-50%) translateY(5px); /* 살짝 아래로 움직임 효과 */
+    cursor: url('../images/ball2.png') 32 32, auto;
+}
 /* 청해진 사진 슬라이드 */
 .slider {
   position: relative;
@@ -481,7 +497,9 @@ footer p{
     font-size: 20px;   /* 글씨 크기 줄이기 */
     padding: 0 10px;   /* 좌우 여백 확보 */
   }
-
+  .scroll-arrow{
+    font-size: 40px;
+  }
   #profile {
     flex-direction: column;
     width: 90%;
