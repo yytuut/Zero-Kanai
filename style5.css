@@ -1,0 +1,656 @@
+@charset "UTF-8";
+html {
+  cursor: url("../images/ball1.png") 32 32, auto;
+  scroll-behavior: smooth;
+}
+/* 기본 스타일 */
+body {
+  font-family: "Yomogi", sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* 수평 중앙 정렬 */
+  flex-direction: column;
+  align-items: center; /* 수직 중앙 정렬 */
+  min-height: 100vh; /* 이렇게 바꾸면 콘텐츠가 많을 때 스크롤 가능 */
+  cursor: url("../images/ball1.png") 32 32, auto;
+  background-color: #f6ecd9;
+  background-attachment: fixed;
+}
+
+/* header 스타일 */
+header {
+  position: fixed;
+  height: 100px;
+}
+.page-header {
+  position: relative; /* 드롭다운 메뉴가 이 안에서 절대 위치하도록 함 */
+  display: flex;
+  justify-content: space-between; /* 왼쪽, 오른쪽 요소를 양쪽 끝으로 정렬 */
+  align-items: center; /* 수직 정렬: 요소들을 수직 중앙에 맞추기 */
+  padding: 10px 20px; /* 여백 설정 */
+  background-color: #e4d1af; /* 투명 대신 원하는 배경색으로 설정 */
+  position: fixed; /* 네비게이션 바 고정 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2000;
+  box-sizing: border-box; /* 패딩을 포함한 전체 너비 계산 */
+}
+/* 로고 스타일 */
+.page-header .logo {
+  max-height: 50px;
+  cursor: url("../images/ball2.png") 32 32, auto;
+  height: 40px; /* 원하는 높이로 조정 */
+  margin-right: 10px; /* 텍스트와 이미지 사이 간격 */
+  pointer-events: auto;
+  z-index: 1001; /* 배경보다 위에 위치시키기 */
+}
+
+.page-header h1 a {
+  font-family: "Yomogi", cursive;
+  font-size: 24px;
+  font-weight: bold;
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  pointer-events: auto;
+  z-index: 1001; /* 배경보다 위에 위치시키기 */
+}
+
+.page-header h1 a:link,
+.page-header h1 a:visited,
+.page-header h1 a:hover,
+.page-header h1 a:active {
+  color: inherit; /* 색상 유지 */
+  text-decoration: none; /* 밑줄 제거 */
+  cursor: url("../images/ball2.png") 32 32, auto;
+}
+
+/* 네비게이션 바 스타일 */
+.main-nav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.main-nav li {
+  margin: 0;
+}
+.main-nav a {
+  padding: 14px 20px; /* 내부 여백 크게 */
+  text-decoration: none;
+  color: #7b5e57;
+  font-family: "Yomogi", cursive;
+  font-size: 20px; /* 글자 좀 더 큼 */
+  font-weight: bold;
+  line-height: 1.6; /* 줄간 간격 넓게 */
+  transition: background-color 0.2s ease;
+  cursor: url("../images/ball2.png") 32 32, auto;
+}
+.main-nav a:hover {
+  color: #f6ecd9;
+  border-radius: 8px; /* 부드럽게 */
+}
+
+/* 기본적으로 햄버거 버튼 숨김 */
+.menu-toggle {
+  display: none;
+  position: fixed; /* 화면 고정 */
+  top: 25px; /* 상단에서 거리 */
+  right: 27px; /* 오른쪽에서 거리 */
+  z-index: 20; /* 헤더 위에 올라오게 */
+  font-family: "Yomogi", cursive;
+  font-size: 1.2rem;
+  padding: 10px 15px;
+  background-color: #fff;
+  border: 2px solid #333;
+  border-radius: 8px;
+  margin: 1px;
+  cursor: url("../images/ball2.png") 32 32, auto;
+}
+/* 기본적으로 숨기기 */
+.dropdown-menu {
+  position: absolute;
+  width: 15%;
+  top: 85%; /* 버튼 아래로 완전히 이동 */
+  right: 20px; /* 버튼 정렬과 일치 */
+  margin-top: 10px; /* 버튼과 약간 간격 */
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+/* 메인 레이아웃 */
+main {
+  width: 100%;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column; /* 세로 방향 정렬 */
+  align-items: center; /* 가로 중앙 정렬 */
+  justify-content: center; /* 세로 중앙 정렬 (자식 정렬용) */
+}
+
+.background-wrapper {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background-image: url("../images/background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  margin-top: 100px; /* 헤더 높이만큼 내리기 */
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(4px); /* 💡 요게 핵심 */
+  z-index: 1;
+}
+.background-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2; /* overlay보다 위에 있어야 함 */
+  color: #7b5e57;
+  font-family: "Yomogi", cursive;
+  font-weight: bold;
+  font-size: 36px;
+  text-align: center;
+}
+.semi-title1 {
+  text-align: left;
+  margin-bottom: 20px;
+  font-family: "Yomogi", cursive;
+}
+.semi-title1 h3 {
+  font-size: 1.8rem;
+  color: #333;
+  border-bottom: 2px solid #7b5e57;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+.kiji {
+  flex: 1;
+  min-width: 250px;
+  text-align: left;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease;
+  padding-left: 70px;
+  padding-right: 70px;
+}
+/* 소개 프로필 */
+.intro-cards-wrapper {
+  display: flex;
+  gap: 40px; /* 카드들 사이 간격 */
+  justify-content: center; /* 가운데 정렬 */
+  flex-wrap: nowrap; /* 한 줄로 유지 (필요시 wrap 가능) */
+  overflow-x: auto; /* 가로 스크롤 가능하게 */
+  padding: 20px 0;
+}
+.intro-card {
+  width: 280px;
+  text-align: center;
+  padding: 20px;
+  border: 2px solid #e4d1af;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+}
+
+.intro-card img {
+  width: 100%;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.intro-card img:hover {
+  transform: scale(1.05);
+  cursor: url("../images/ball2.png") 32 32, auto;
+}
+
+.popup-extra {
+  margin-top: 8px;
+  font-size: 0.95em;
+  text-align: center;
+  color: #555;
+}
+/* 팝업 오버레이 */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+/* 흐림 효과 줄 때 쓸 공통 클래스 */
+.blur-background {
+  filter: blur(6px);
+  transition: filter 0.3s ease;
+}
+/* 팝업 콘텐츠 */
+.popup-content {
+  display: flex;
+  flex-direction: column; /* 이미지와 텍스트를 세로로 쌓기 */
+  align-items: center; /* 가로(수평) 가운데 정렬 */
+  justify-content: center; /* 세로 중앙 정렬 (필요하면) */
+  text-align: center; /* 텍스트 중앙 정렬 */
+  padding: 20px;
+  max-width: 500px;
+  width: 90%;
+  background-color: #fff;
+  border-radius: 12px;
+  animation: zoomIn 0.4s ease forwards;
+  transition: opacity 0.3s ease;
+}
+
+.popup-content img {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 10px;
+  margin-bottom: 15px; /* 이미지 아래 공간 */
+  transform: scale(0.7);
+  opacity: 0;
+  animation: zoomIn 0.4s ease forwards;
+}
+
+.popup-content h3 {
+  font-size: 1.5rem;
+  margin: 10px 0 5px;
+  font-family: "Yomogi", cursive;
+  color: #333;
+}
+
+.popup-content p {
+  font-size: 1rem;
+  font-family: "Yomogi", sans-serif;
+  color: #555;
+}
+.popup-extra p {
+  margin: 4px 0;
+}
+/* 팝업창 화살표 */
+.popup-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  width: 40px;
+  height: 60px;
+  cursor: pointer;
+  border-radius: 8px;
+  user-select: none;
+  z-index: 20;
+}
+.popup-arrow {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  pointer-events: auto;
+}
+
+.popup-arrow.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.popup-arrow-left {
+  left: 10px;
+}
+.popup-arrow-left:hover {
+  cursor: url("../images/ball2.png") 32 32, auto;
+}
+.popup-arrow-right {
+  right: 10px;
+}
+.popup-arrow-right:hover {
+  cursor: url("../images/ball2.png") 32 32, auto;
+}
+/* 닫기 버튼 */
+.popup-close {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 50%; /* 완전한 원 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: transform 0.4s ease;
+}
+
+/* 마우스 오버 시 회전 */
+.popup-close:hover {
+  transform: rotate(360deg);
+  cursor: url("../images/ball2.png") 32 32, auto;
+}
+
+/* 확대 애니메이션 */
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+/* aside */
+.sub-title {
+  font-size: 1.375rem;
+  padding: 0 8px 8px;
+  border-bottom: 2px #7b5e57 solid;
+  font-weight: normal;
+}
+aside p {
+  padding: 12px 10px;
+}
+.sub-menu {
+  margin-bottom: 60px;
+  list-style: none;
+}
+.sub-menu li {
+  position: relative;
+  padding: 0.25em 0;
+}
+.sub-menu li:after {
+  content: "";
+  display: block;
+  height: 2px;
+  background: -webkit-linear-gradient(to right, #7b5e57, transparent);
+  background: linear-gradient(to right, #7b5e57, transparent);
+}
+.sub-menu a {
+  color: #333;
+  padding: 10px;
+  display: block;
+  text-decoration: none;
+  color: inherit; /* 링크 색상도 기본 텍스트 색상으로 */
+}
+
+.sub-menu a:hover {
+  color: #ccc;
+  cursor: url("../images/ball2.png") 32 32, auto;
+}
+
+/* aside 옆부분 조정 */
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.content-wrapper > aside {
+  width: 250px; /* 적당한 너비 */
+  position: sticky; /* 스크롤 시 따라 내려오도록 */
+  top: 120px; /* 헤더 높이만큼 띄우기 */
+  align-self: flex-start; /* 세로 정렬 시작점 맞추기 */
+}
+section {
+  scroll-margin-top: 80px;
+}
+
+/* footer */
+footer {
+  background: #e4d1af;
+  text-align: center;
+  padding: 26px 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+footer p {
+  color: #7b5e57;
+  font-size: 0.875rem;
+  font-family: "Yomogi", sans-serif;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeInUp 1.8s ease-out forwards;
+}
+/* 페이드 아웃 효과 */
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-in-start {
+  opacity: 0;
+  animation: fadeInStart 1s ease-in-out forwards;
+}
+/* 스크롤 애니메이션 */
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.scroll-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@keyframes fadeInStart {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes slideRightFade {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes slideLeftFade {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-right {
+  animation: slideRightFade 0.4s ease-in-out;
+}
+.slide-left {
+  animation: slideLeftFade 0.4s ease-in-out;
+}
+
+/* 600px 이하 화면용 반응형 디자인 */
+@media screen and (max-width: 600px) {
+  html,
+  body {
+    overflow-x: hidden; /* 가로 스크롤 방지 */
+  }
+  body {
+    padding: 0 10px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: fixed;
+    font-size: 1rem;
+    padding: 8px 12px;
+    background-color: #fff;
+    border: 2px solid #333;
+    border-radius: 8px;
+    cursor: url("../images/ball2.png") 32 32, auto;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    right: 10px;
+    width: 34%;
+    margin-top: -10px;
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    opacity: 0;
+    cursor: url("../images/ball2.png") 32 32, auto;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+  .dropdown-menu.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .dropdown-menu li {
+    margin: 0;
+  }
+  .dropdown-menu a {
+    display: block;
+    padding: 8px 18px;
+    font-size: 18px;
+    color: #333;
+    font-family: "Yomogi", cursive;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    line-height: 1.6;
+  }
+
+  .dropdown-menu a:hover {
+    background-color: #eee;
+    border-radius: 8px;
+  }
+
+  .main-nav {
+    list-style: none;
+    flex-direction: column;
+    display: none; /* 원래 메뉴 숨기기 */
+  }
+
+  .background-wrapper {
+    height: 300px; /* 더 작은 높이로 조정 */
+    margin-top: 80px; /* 모바일에서 여백 조정 */
+    padding: 0 10px;
+  }
+
+  .background-text {
+    font-size: 20px; /* 글씨 크기 줄이기 */
+    padding: 0 10px; /* 좌우 여백 확보 */
+  }
+
+  footer {
+    padding: 0 10px;
+  }
+
+  footer p {
+    font-size: 0.75rem;
+  }
+  .content-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  aside {
+    width: 100%;
+    margin-top: 20px;
+  }
+  /* 소개 프로필 */
+  .intro-cards-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px;
+  }
+  .intro-card {
+    flex: 0 0 150px;
+    padding: 5px;
+    box-sizing: border-box;
+  }
+  .intro-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+  .intro-card p {
+    font-size: 0.75rem;
+    margin-top: 4px;
+  }
+  .popup-content {
+    max-width: 90%;
+    padding: 15px;
+  }
+  .popup-content img {
+    max-height: 200px;
+  }
+  .popup-content h3 {
+    font-size: 1.2rem;
+  }
+  .popup-content p {
+    font-size: 0.85rem;
+  }
+}
