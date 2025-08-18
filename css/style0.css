@@ -440,7 +440,7 @@ footer p{
   .dropdown-menu {
     position: absolute;
     right: 10px;
-    width: 34%;
+    width: 36%;
     margin-top: -10px;
     background-color: #f8f8f8;
     border: 1px solid #ccc;
@@ -498,6 +498,7 @@ footer p{
   }
   .scroll-arrow{
     font-size: 40px;
+    display: block;
   }
   #profile {
     flex-direction: column;
