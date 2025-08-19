@@ -191,6 +191,19 @@ main {
     transform: translateX(-50%) translateY(5px); /* 살짝 아래로 움직임 효과 */
     cursor: url('../images/ball2.png') 32 32, auto;
 }
+/* SVG 내부 애니메이션 */
+.double-arrow {
+  animation: bounceArrow 1.5s infinite;
+}
+
+@keyframes bounceArrow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
 /* 프로필 섹션 */
 #profile {
   background-color: #fff;
@@ -533,6 +546,10 @@ footer {
   .scroll-arrow{
     font-size: 40px;
   }
+  .scroll-arrow svg {
+    width: 36px;
+    height: 48px;
+  }
   #profile {
     display: flex; /* 혹시 빠져있으면 추가 */
     flex-direction: row; /* 이미지 왼쪽, 텍스트 오른쪽 유지 */
@@ -565,6 +582,10 @@ footer {
     flex-direction: column;
     align-items: center;
     padding: 1em;
+  }
+  .content-wrapper > aside {
+    order: -1; /* ⭐️ aside를 위로 */
+    align-self: center;
   }
   .qa-title {
     font-size: 1.2em;
