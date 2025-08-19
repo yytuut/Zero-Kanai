@@ -583,6 +583,10 @@ footer {
     align-items: center;
     padding: 1em;
   }
+  .content-wrapper > aside {
+    order: -1; /* ⭐️ aside를 위로 */
+    align-self: center;
+  }
   .qa-title {
     font-size: 1.2em;
   }
