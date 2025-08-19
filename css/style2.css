@@ -176,33 +176,20 @@ main {
   text-align: center;
 }
 .scroll-arrow {
-    position: absolute;
-    bottom: 20px;  /* 아래에서 20px 위 */
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 70px;
-    color: #7B5E57; 
-    user-select: none;
-    transition: transform 0.3s ease;
-    z-index: 10;
+  position: absolute;
+  bottom: 20px; /* 아래에서 20px 위 */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 70px;
+  color: #7b5e57;
+  user-select: none;
+  transition: transform 0.3s ease;
+  z-index: 10;
 }
 
 .scroll-arrow:hover {
-    transform: translateX(-50%) translateY(5px); /* 살짝 아래로 움직임 효과 */
-    cursor: url('../images/ball2.png') 32 32, auto;
-}
-/* SVG 내부 애니메이션 */
-.double-arrow {
-  animation: bounceArrow 1.5s infinite;
-}
-
-@keyframes bounceArrow {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(5px);
-  }
+  transform: translateX(-50%) translateY(5px); /* 살짝 아래로 움직임 효과 */
+  cursor: url("../images/ball2.png") 32 32, auto;
 }
 /* 설명부분 */
 .product-section {
@@ -321,6 +308,8 @@ main {
 }
 
 /* aside */
+
+/* aside */
 aside {
   flex: 1;
   margin-top: 0;
@@ -393,6 +382,7 @@ aside p {
 .chat-row {
   display: flex;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .chat-row.left {
@@ -624,12 +614,8 @@ footer p {
     font-size: 20px; /* 글씨 크기 줄이기 */
     padding: 0 10px; /* 좌우 여백 확보 */
   }
-  .scroll-arrow{
+  .scroll-arrow {
     font-size: 40px;
-  }
-  .scroll-arrow svg {
-    width: 36px;
-    height: 48px;
   }
   #profile {
     flex-direction: column;
@@ -646,6 +632,59 @@ footer p {
     font-size: 14px;
     line-height: 1.4;
   }
+  .naiyong {
+    padding-top: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .chat-container {
+    margin-top: 0px;
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+  }
+  .chat-row {
+    flex-direction: column;
+  }
+  .chat-row.left {
+    align-items: flex-start;
+  }
+
+  .chat-row.left img {
+    order: 0;
+  }
+  .chat-row.left .speech-bubble {
+    order: 1;
+  }
+  .chat-row.right {
+    align-items: flex-end;
+  }
+  .chat-row.right img {
+    order: 0; /* 사진 먼저 */
+  }
+  .chat-row.right .speech-bubble {
+    order: 1; /* 말풍선 나중 */
+  }
+  /* 말풍선 꼬리 - 왼쪽 */
+  .chat-row.left .speech-bubble::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    border: 10px solid transparent;
+    border-right-color: #f0f0f0;
+  }
+
+  /* 말풍선 꼬리 - 오른쪽 */
+  .chat-row.right .speech-bubble::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 10px;
+    border: 10px solid transparent;
+    border-left-color: #f0f0f0;
+  }
 
   footer {
     padding: 0 10px;
@@ -658,12 +697,13 @@ footer p {
     flex-direction: column;
     align-items: center;
   }
-  .content-wrapper > aside {
-    order: -1; /* ⭐️ aside를 위로 */
-    align-self: center;
-  }
+
   aside {
     width: 100%;
     margin-top: 20px;
+  }
+  .content-wrapper > aside {
+    order: -1; /* ⭐️ aside를 위로 */
+    align-self: center;
   }
 }

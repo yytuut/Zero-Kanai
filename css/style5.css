@@ -176,33 +176,20 @@ main {
   text-align: center;
 }
 .scroll-arrow {
-    position: absolute;
-    bottom: 20px;  /* 아래에서 20px 위 */
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 70px;
-    color: #7B5E57; 
-    user-select: none;
-    transition: transform 0.3s ease;
-    z-index: 10;
+  position: absolute;
+  bottom: 20px; /* 아래에서 20px 위 */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 70px;
+  color: #7b5e57;
+  user-select: none;
+  transition: transform 0.3s ease;
+  z-index: 10;
 }
 
 .scroll-arrow:hover {
-    transform: translateX(-50%) translateY(5px); /* 살짝 아래로 움직임 효과 */
-    cursor: url('../images/ball2.png') 32 32, auto;
-}
-/* SVG 내부 애니메이션 */
-.double-arrow {
-  animation: bounceArrow 1.5s infinite;
-}
-
-@keyframes bounceArrow {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(5px);
-  }
+  transform: translateX(-50%) translateY(5px); /* 살짝 아래로 움직임 효과 */
+  cursor: url("../images/ball2.png") 32 32, auto;
 }
 .semi-title1 {
   text-align: left;
@@ -633,12 +620,8 @@ footer p {
     font-size: 20px; /* 글씨 크기 줄이기 */
     padding: 0 10px; /* 좌우 여백 확보 */
   }
-  .scroll-arrow{
+  .scroll-arrow {
     font-size: 40px;
-  }
-  .scroll-arrow svg {
-    width: 36px;
-    height: 48px;
   }
   footer {
     padding: 0 10px;
@@ -651,10 +634,7 @@ footer p {
     flex-direction: column;
     align-items: center;
   }
-  .content-wrapper > aside {
-    order: -1; /* ⭐️ aside를 위로 */
-    align-self: center;
-  }
+
   aside {
     width: 100%;
     margin-top: 20px;
@@ -691,5 +671,9 @@ footer p {
   }
   .popup-content p {
     font-size: 0.85rem;
+  }
+  .content-wrapper > aside {
+    order: -1; /* ⭐️ aside를 위로 */
+    align-self: center;
   }
 }

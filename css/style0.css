@@ -191,19 +191,6 @@ main {
   transform: translateX(-50%) translateY(5px); /* 살짝 아래로 움직임 효과 */
   cursor: url("../images/ball2.png") 32 32, auto;
 }
-/* SVG 내부 애니메이션 */
-.double-arrow {
-  animation: bounceArrow 1.5s infinite;
-}
-
-@keyframes bounceArrow {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(5px);
-  }
-}
 /* 청해진 사진 슬라이드 */
 .slider {
   position: relative;
@@ -527,10 +514,6 @@ footer p {
   .scroll-arrow {
     font-size: 40px;
   }
-  .scroll-arrow svg {
-    width: 36px;
-    height: 48px;
-  }
   #profile {
     flex-direction: column;
     width: 90%;
@@ -553,12 +536,14 @@ footer p {
   footer p {
     font-size: 0.75rem;
   }
+  .content-wrapper > aside {
+    order: -1; /* ⭐️ aside를 위로 */
+    align-self: center;
+  }
+
   .content-wrapper {
     flex-direction: column;
     align-items: center;
-  }
-  .content-wrapper > aside {
-    order: -1; /* ⭐️ aside를 위로 */
   }
   .main-content {
     width: 100%;
