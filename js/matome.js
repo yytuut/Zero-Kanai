@@ -60,7 +60,15 @@ const teamMembers = [
         <p><strong>一言：</strong>アーメン</p>
       `
      },
-      { extraContent: "<h3>感想</h3><p>大変</p>"}
+      { 
+        desc: "<h3>感想</h3>",
+        extraContent: `
+        <p>今回のプロジェクトは、私にとってすべてが初めての経験でした。インタビューもホームページ作りも初めてで大変でしたが、チームメンバーのおかげで最後までやりきることができました。
+
+        この経験を通して、新しいことに挑戦する勇気や、問題を解決する力を学びました。また、仲間と協力する大切さを知り、自分に自信を持つことができました。さらに、金井さんのリーダーとしての姿から多く学び、私の成長にもつながりました。この学びは、今後の社会生活でも必ず役立つと思います。
+
+        これからも今回の経験をいかして、新しい挑戦に積極的に取り組んでいきたいと思います</p>
+        ` }
     ]
   },
   {
@@ -79,7 +87,14 @@ const teamMembers = [
         <p><strong>一言：</strong>質素な生活!!</p>
       `
      },
-      { extraContent: "<h3>感想</h3><p>大変</p>" }
+      { 
+        desc: "<h3>感想</h3>",
+        extraContent: `
+        <p>ゼロから始めたこのプロジェクトは、<br>文字通りITの知識がゼロだったため、<br>
+        最初は多くの困難がありました。しかし、チームメンバーと<br>プロジェクトを進める中で、
+        多くのコミュニケーションを<br>通じてお互いの不足している点を補い合い、<br>
+        克服することができました。これらの経験から、<br>協力の重要性を改めて実感する機会になったと思います。<br>それに加えて、これまで一度も使ったことのなかった<br>JavaScriptを使うことができて、良い経験になったと思い、<br>ITの知識を積む上でも役に立ちました。</p>
+        ` }
     ]
   },
   {
@@ -97,7 +112,11 @@ const teamMembers = [
         <p><strong>一言：</strong>当たって砕けろ</p>
       `
      },
-      { extraContent: "<h3>感想</h3><p>大変</p>" }
+      { 
+        desc: "<h3>感想</h3>",
+        extraContent: `
+        <p>金井氏とインタビューしたこと、その内容を整理したこと、仲間と協力しながらWEBページを作ったこと等。活動のすべての瞬間が忘られないでしょう。金井氏をインタビューすることで、新しい情報も得られ、金井氏のことを知ることで人を接するときの視野、世界を見る視野も広げたと思います。特に、金井氏のリーダーを任されら時の経験は金井氏の哲学を感じられて、勉強になりました。 どう言うべきかちょっと曖昧ですけれども(笑)、金井氏のリーダーとしての哲学を聞いて、リーダーに関する考えが変えました。大袈裟かも知れませんが、リーダーとは、私とは物凄く距離がある役割で、選ばれた人間(?)にしかできないことだと思っていました。ですが、金井氏の経験を聞いて、リーダーの形は人間の数だけ様々かもしれない。また、リーダーに必要なものは私が考えているものではないかもしれないと感じました。これをきっかけに、リーダーとは何か、私がリーダーになるとしたら、どんなリーダーになりたいのだろうと考えることができました。できればの話ですが、いつか金井氏ごときみんなに信頼される素敵なリーダーになりたいですね。いろいろ考え直しながら、過去を繰り返す大事な機会だったと思います。久々のチーム活動で、開発活動だったのでいろいろ緊張したり、心配したりしましたが、いい仲間たちと活動することができ想像以外に楽しくてたまらなかったです。本当に今の仲間たちで幸いです。一緒に活動してくれたチーム「ゼロから始まる夏休み」の仲間たちと、インタビューに応じてくださった金井太一様に誠に感謝します。ありがとうございました！</p>
+        ` }
     ]
   }
 ];
@@ -151,41 +170,49 @@ function updatePopupPage() {
   const member = teamMembers[currentIndex];
   const page = member.pages[currentPage];
 
-  
   if (isInitialOpen) {
-    // 처음 열 때는 슬라이드 효과 없이 바로 내용 표시
+    // 처음 열 때 애니메이션 없이 바로 보여주기
     popupPageWrapper.classList.remove('slide-left', 'slide-right');
 
     if (currentPage === 0) {
+      // 1번째 페이지: 이미지, 이름, desc만 표시
       popupImage.style.display = 'block';
       popupName.style.display = 'block';
       popupDesc.style.display = 'block';
       popupComment.style.display = 'none';
       popupExtraContent.style.display = 'none';
+
       popupDesc.textContent = page.desc || '';
       popupComment.innerHTML = '';
-    } else if (page.extraContent) {
-      popupImage.style.display = 'none';
-      popupName.style.display = 'none';
-      popupDesc.style.display = 'none';
-      popupComment.style.display = 'none';
-      popupExtraContent.style.display = 'block';
-      popupExtraContent.innerHTML = page.extraContent || '';
-    } else {
+      popupExtraContent.innerHTML = '';
+    } else if (currentPage === 1) {
+      // 2번째 페이지: desc + comment 표시
       popupImage.style.display = 'none';
       popupName.style.display = 'none';
       popupDesc.style.display = 'block';
       popupComment.style.display = 'block';
       popupExtraContent.style.display = 'none';
+
       popupDesc.innerHTML = page.desc || '';
       popupComment.innerHTML = page.comment || '';
+      popupExtraContent.innerHTML = '';
+    } else if (currentPage === 2) {
+      // 3번째 페이지: desc + extraContent 둘 다 표시
+      popupImage.style.display = 'none';
+      popupName.style.display = 'none';
+      popupDesc.style.display = 'block';       // desc 보이도록
+      popupComment.style.display = 'none';
+      popupExtraContent.style.display = 'block';
+
+      popupDesc.innerHTML = page.desc || '';
+      popupExtraContent.innerHTML = page.extraContent || '';
     }
 
     updateArrowVisibility();
     return;
   }
 
-  // 페이지 넘길 때만 슬라이드 효과 적용
+  // 페이지 전환 시 애니메이션 처리
   popupPageWrapper.classList.remove('slide-left', 'slide-right');
   popupPageWrapper.classList.add(slideDirection === 'right' ? 'slide-right' : 'slide-left');
 
@@ -196,33 +223,39 @@ function updatePopupPage() {
       popupDesc.style.display = 'block';
       popupComment.style.display = 'none';
       popupExtraContent.style.display = 'none';
+
       popupDesc.textContent = page.desc || '';
       popupComment.innerHTML = '';
-    } else if (page.extraContent) {
-      popupImage.style.display = 'none';
-      popupName.style.display = 'none';
-      popupDesc.style.display = 'none';
-      popupComment.style.display = 'none';
-      popupExtraContent.style.display = 'block';
-      popupExtraContent.innerHTML = page.extraContent || '';
-    } else {
+      popupExtraContent.innerHTML = '';
+    } else if (currentPage === 1) {
       popupImage.style.display = 'none';
       popupName.style.display = 'none';
       popupDesc.style.display = 'block';
       popupComment.style.display = 'block';
       popupExtraContent.style.display = 'none';
+
       popupDesc.innerHTML = page.desc || '';
       popupComment.innerHTML = page.comment || '';
+      popupExtraContent.innerHTML = '';
+    } else if (currentPage === 2) {
+      popupImage.style.display = 'none';
+      popupName.style.display = 'none';
+      popupDesc.style.display = 'block';       // desc도 보여줌
+      popupComment.style.display = 'none';
+      popupExtraContent.style.display = 'block';
+
+      popupDesc.innerHTML = page.desc || '';
+      popupExtraContent.innerHTML = page.extraContent || '';
     }
 
     updateArrowVisibility();
 
-    // 애니메이션 끝나면 클래스 제거
     setTimeout(() => {
       popupPageWrapper.classList.remove('slide-left', 'slide-right');
-    }, 400); // 애니메이션 시간에 맞춰서 조절
-  }, 100); // 약간 딜레이 줘서 자연스럽게
+    }, 400);
+  }, 100);
 }
+
 
 // 화살표 표시/숨김 업데이트
 function updateArrowVisibility() {

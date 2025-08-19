@@ -498,7 +498,6 @@ footer p{
   }
   .scroll-arrow{
     font-size: 40px;
-    display: block;
   }
   #profile {
     flex-direction: column;
