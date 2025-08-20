@@ -266,7 +266,26 @@ main {
   text-align: center;
   color: #555;
 }
+#popup-extra-content {
+  max-height: 300px; /* 필요에 따라 높이 조절 */
+  overflow-y: auto;
+  padding-right: 10px; /* 스크롤바가 생겨도 내용이 가려지지 않게 */
+  box-sizing: border-box;
+  text-align: center; /* 이 부분이 핵심 */
+  padding: 0 40px;
+}
+#popup-extra-content::-webkit-scrollbar {
+  width: 6px;
+}
 
+#popup-extra-content::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+#popup-extra-content::-webkit-scrollbar-track {
+  background-color: transparent;
+}
 /* 팝업 오버레이 */
 .popup-overlay {
   position: fixed;
