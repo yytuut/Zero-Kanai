@@ -291,16 +291,13 @@ main {
 }
 .feature:hover {
   transform: scale(1.03);
-  cursor: url("../images/ball2.png") 32 32, auto;
 }
 .feature h3 {
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 10px;
 }
-.feature a {
-  cursor: url("../images/ball2.png") 32 32, auto;
-}
+
 .feature p {
   font-size: 14px;
   line-height: 1.6;
