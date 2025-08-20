@@ -17,6 +17,7 @@ body {
   cursor: url("../images/ball1.png") 32 32, auto;
   background-color: #f6ecd9;
   background-attachment: fixed;
+  overflow-x: hidden; /* 가로 스크롤 방지 */
 }
 
 /* header 스타일 */
