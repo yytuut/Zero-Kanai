@@ -653,6 +653,7 @@ footer p {
     font-size: 20px; /* 글씨 크기 줄이기 */
     padding: 0 10px; /* 좌우 여백 확보 */
   }
+  
   .scroll-arrow {
     font-size: 40px;
   }
@@ -699,17 +700,72 @@ footer p {
     font-size: 0.75rem;
     margin-top: 4px;
   }
+  
+  /* 팝업 오버레이 */
+  .popup-overlay {
+    align-items: flex-start; /* 상단 정렬 */
+    padding: 40px 20px; /* 상하 패딩 추가 */
+  }
+
+  /* 팝업 콘텐츠 */
   .popup-content {
-    max-width: 90%;
-    padding: 15px;
+    max-width: 100%;
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-sizing: border-box;
+    max-height: 80vh; /* 화면 높이 80% */
+    overflow-y: auto;
   }
+
+  /* 팝업 이미지 */
   .popup-content img {
-    max-height: 200px;
+    max-height: 180px;
+    max-width: 100%;
+    margin-bottom: 10px;
+    transform: scale(1);
+    opacity: 1;
+    animation: none;
   }
+
+  /* 팝업 제목과 텍스트 */
   .popup-content h3 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    margin: 8px 0 12px;
   }
   .popup-content p {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
+  }
+
+  /* 팝업 닫기 버튼 */
+  .popup-close {
+  position: absolute;
+  top: 10px;     /* -15px -> 10px으로 변경 */
+  right: 10px;   /* -15px -> 10px으로 변경 */
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  transition: transform 0.4s ease;
+  }
+
+  /* 팝업 화살표 */
+  .popup-arrow {
+    width: 35px;
+    height: 50px;
+    font-size: 1.6rem;
+  }
+  .popup-arrow-left {
+    left: 5px;
+  }
+  .popup-arrow-right {
+    right: 5px;
   }
 }
