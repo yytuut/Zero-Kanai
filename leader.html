@@ -14,12 +14,12 @@
         <h1><a href="start.html"><img class="logo" src="images/kanai.png" alt="ゼロから始まる夏休み">Best Regards</a></h1>
             <!-- 데스크탑 전용 메뉴 -->
             <ul class="main-nav">
-                <li><a href="gaiyou.html">概要</a></li>
                 <li><a href="syuzinkou.html">主人公の紹介</a></li>
                 <li><a href="kasiwa.html">カシワテック</a></li>
                 <li><a href="nihonzin.html">釜山日本人会</a></li>
                 <li><a href="leader.html">リーダー</a></li>
                 <li><a href="matome.html">まとめ</a></li>
+                <li><a href="gaiyou.html">About Us</a></li>
             </ul>
             <!-- 모바일용 버튼 -->
             <button class="menu-toggle" onclick="toggleMenu()">☰</button>
@@ -27,12 +27,12 @@
             <!-- 모바일 드롭다운 -->
             <nav id="dropdown-menu" class="dropdown-menu">
             <ul>
-                <li><a href="gaiyou.html">概要</a></li>
                 <li><a href="syuzinkou.html">主人公の紹介</a></li>
                 <li><a href="kasiwa.html">カシワテック</a></li>
                 <li><a href="nihonzin.html">釜山日本人会</a></li>
                 <li><a href="leader.html">リーダー</a></li>
                 <li><a href="matome.html">まとめ</a></li>
+                <li><a href="gaiyou.html">About Us</a></li>
             </ul>
             </nav>
     </header>
@@ -62,19 +62,19 @@
         <div class="feature">
           <h3>株式会社カシワコリア</h3>
           <img id="kanaiwork" src="images/kanaiwork.jpg" alt="카시와 코리아">
-          <p>技術営業部 次長</p>
+          <p>次長</p>
         </div>
 
         <div class="feature">
           <h3>釜山日本人会</h3>
           <img id="kanaikasyu" src="images/kanaikasyu.jpg" alt="부산일본인회">
-          <p>釜山日本人会 会長</p>
+          <p>釜山日本人会会長</p>
         </div>
 
         <div class="feature">
           <h3>家長</h3>
           <img id="kachyou" src="images/school.webp" alt="가장">
-           <p>金井庭のの家長</p>
+           <p>家庭の家長</p>
         </div>
 
       </div><!--product-features-->
@@ -104,6 +104,23 @@
           <h3>Q＆A</h3>
         </div>
               <div class="chat-container">
+        <!-- 첫 번째 사람 -->
+        <section id="sayumei">
+        <h4 id="st">金井様の左右の名</h4>
+        <div class="chat-row left">
+          <img src="images/LJY.png" class="avatar" alt="Person 1">
+          <div class="speech-bubble">
+            &nbsp;金井さんが大事に思ってる哲学や左右名は何ですか？
+        </div>
+        </div>
+        <!-- 두 번째 사람 -->
+        <div class="chat-row right">
+          <div class="speech-bubble">&nbsp;20代の時はもう本当に今を生きるってか形だったんですけど。今は誰にでも感謝っていう形ですね。
+                <br>&nbsp;&nbsp;人が人を動かす。日本人会のためでもあるんですけど、仕事のためでも。私が指示した時にその指示に従って仕事をしてくれる、そういうことに対してはやはり感謝の気持ちっていうのは持っていないといけないので。いつでもありがとうございますっていうような言葉をかけられると、かけられた側としてもやはり嬉しいと思うし、その人についていきたいなとか考えてくれるのかなと思ってですね。
+          </div>
+          <img src="images/kanai.png" class="avatar" alt="Person 2">
+        </div>
+        </section>
         <section id="hatsuRida">
         <h4 id="st">初めてリーダーになったのは</h4>
         <div class="chat-row left">
@@ -176,23 +193,6 @@
         </div>
         </section>
 
-         <!-- 첫 번째 사람 -->
-        <section id="sayumei">
-        <h4 id="st">金井様の左右の名</h4>
-        <div class="chat-row left">
-          <img src="images/LJY.png" class="avatar" alt="Person 1">
-          <div class="speech-bubble">
-            &nbsp;金井さんが大事に思ってる哲学や左右名は何ですか？
-        </div>
-        </div>
-        <!-- 두 번째 사람 -->
-        <div class="chat-row right">
-          <div class="speech-bubble">&nbsp;20代の時はもう本当に今を生きるってか形だったんですけど。今は誰にでも感謝っていう形ですね。
-                <br>&nbsp;&nbsp;人が人を動かす。日本人会のためでもあるんですけど、仕事のためでも。私が指示した時にその指示に従って仕事をしてくれる、そういうことに対してはやはり感謝の気持ちっていうのは持っていないといけないので。いつでもありがとうございますっていうような言葉をかけられると、かけられた側としてもやはり嬉しいと思うし、その人についていきたいなとか考えてくれるのかなと思ってですね。
-          </div>
-          <img src="images/kanai.png" class="avatar" alt="Person 2">
-        </div>
-        </section>
       </div><!--product-section-->
     </div><!--"content-wrapper"-->
      <aside>
@@ -200,11 +200,11 @@
       <ul class="sub-menu">
         <li><a href="#kakuRida">各場面での役割</a></li>
         <li><a href="#kizi">リーダーの金井氏</a></li>
+        <li><a href="#sayumei">金井様の左右の名</a></li>
         <li><a href="#hatsuRida">初めてリーダー</a></li>
         <li><a href="#sisyaRida">支社リーダー</a></li>
         <li><a href="#kaichouRida">日本人会の会長として</a></li>
         <li><a href="#RidaSeikaku">リーダー的性格について</a></li>
-        <li><a href="#sayumei">金井様の左右の名</a></li>
       </ul>
     </aside>
     </main>
