@@ -395,7 +395,7 @@ aside p {
 #garo{
   display: flex;
   flex-direction: row; /* 가로 배치 */
-  gap: 10px; 
+  gap: 30px; 
 }
 /* footer */
 footer {
