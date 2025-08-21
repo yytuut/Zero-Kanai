@@ -392,6 +392,11 @@ aside p {
   top: 120px; /* 헤더 높이만큼 띄우기 */
   align-self: flex-start; /* 세로 정렬 시작점 맞추기 */
 }
+#garo{
+  display: flex;
+  flex-direction: row; /* 가로 배치 */
+  gap: 10px; 
+}
 /* footer */
 footer {
   background: #e4d1af;
