@@ -1,15 +1,18 @@
- document.addEventListener("DOMContentLoaded", () => {
-      const el = document.querySelector(".wave-text");
-      const text = el.textContent.trim();
-      el.textContent = "";
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(".wave-text");
 
-      [...text].forEach((char, i) => {
-        const span = document.createElement("span");
-        span.textContent = char;
-        span.style.animationDelay = `${i * 0.1}s`;
-        el.appendChild(span);
-      });
+  elements.forEach((el) => {
+    const text = el.textContent.trim();
+    el.textContent = "";
+
+    [...text].forEach((char, i) => {
+      const span = document.createElement("span");
+      span.textContent = char;
+      span.style.animationDelay = `${i * 0.1}s`;
+      el.appendChild(span);
     });
+  });
+});
     document.querySelector(".button").addEventListener("click", function (e) {
     e.preventDefault(); // 기본 링크 동작 막기
 
