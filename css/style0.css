@@ -397,6 +397,11 @@ aside p {
   flex-direction: row; /* 가로 배치 */
   gap: 30px; 
 }
+#sero{
+  display: flex;
+  flex-direction: column; /* 가로 배치 */
+  gap: 30px; 
+}
 /* footer */
 footer {
   background: #e4d1af;
