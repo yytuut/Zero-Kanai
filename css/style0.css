@@ -392,15 +392,13 @@ aside p {
   top: 120px; /* 헤더 높이만큼 띄우기 */
   align-self: flex-start; /* 세로 정렬 시작점 맞추기 */
 }
-#garo{
-  display: flex;
-  flex-direction: row; /* 가로 배치 */
-  gap: 30px; 
-}
+#zero,
 #sero{
   display: flex;
   flex-direction: column; /* 가로 배치 */
   gap: 30px; 
+  max-width: 100%;
+  margin-right: 30px;
 }
 /* footer */
 footer {
@@ -567,13 +565,13 @@ footer p {
   #sero{
     display: flex;
     flex-direction: column;
-    width: 100%; 
+    max-width: 100%;
     align-self: center;
   }
   #garo{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    max-width: 100%;
     align-self: center;
   }
 
