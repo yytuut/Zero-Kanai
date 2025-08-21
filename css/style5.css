@@ -792,6 +792,12 @@ footer p {
     order: -1; /* ⭐️ aside를 위로 */
     align-self: center;
   }
+  #ado,
+  #matome {
+    padding-top: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
   aside {
     width: 100%;
     margin-top: 20px;
