@@ -220,7 +220,7 @@ main {
 }
 .ado {
   flex: 1;
-  min-width: 250px;
+  max-width: 100%;
   text-align: left;
   background-color: #fff;
   border-radius: 12px;
@@ -806,12 +806,6 @@ footer p {
     padding-right: 30px;
   }
 
-  aside {
-    width: 100%;
-    margin-top: 20px;
-    margin-left:0;
-   margin-right:0;
-  }
   /* 소개 프로필 */
  .intro-cards-wrapper {
     display: flex;
