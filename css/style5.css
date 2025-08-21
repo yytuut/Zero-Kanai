@@ -689,7 +689,7 @@ footer p {
 }
 
 /* 600px 이하 화면용 반응형 디자인 */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   html,
   body {
     overflow-x: hidden; /* 가로 스크롤 방지 */
