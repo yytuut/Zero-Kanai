@@ -2,12 +2,11 @@
 html {
   cursor: url("../images/ball1.png") 32 32, auto;
   scroll-behavior: smooth;
-  overflow-x: hidden; /* 가로 스크롤 방지 */
 }
 /* 기본 스타일 */
 body {
   font-family: "Klee One", sans-serif;
-  color: #333;
+  color: #333; 
   margin: 0;
   padding: 0;
   display: flex;
@@ -308,6 +307,7 @@ main {
 
 /* aside */
 aside {
+  position: sticky; 
   flex: 1;
   margin-top: 0;
 }

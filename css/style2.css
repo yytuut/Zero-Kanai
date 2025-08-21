@@ -2,7 +2,6 @@
 html {
   cursor: url("../images/ball1.png") 32 32, auto;
   scroll-behavior: smooth;
-    overflow-x: hidden; /* 가로 스크롤 방지 */
 }
 /* 기본 스타일 */
 body {
@@ -13,7 +12,7 @@ body {
   display: flex;
   justify-content: center; /* 수평 중앙 정렬 */
   flex-direction: column;
-  align-items: center; /* 수직 중앙 정렬 */
+  align-items: center; /* 수직 중앙 정렬 */ 
   min-height: 100vh; /* 이렇게 바꾸면 콘텐츠가 많을 때 스크롤 가능 */
   cursor: url("../images/ball1.png") 32 32, auto;
   background-color: #f6ecd9;
@@ -325,6 +324,7 @@ main {
 
 /* aside */
 aside {
+  position: sticky; 
   flex: 1;
   margin-top: 0;
 }

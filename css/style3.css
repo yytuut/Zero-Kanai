@@ -2,7 +2,6 @@
 html {
   cursor: url("../images/ball1.png") 32 32, auto;
   scroll-behavior: smooth;
-    overflow-x: hidden; /* 가로 스크롤 방지 */
 }
 /* 기본 스타일 */
 body {
@@ -18,7 +17,7 @@ body {
   cursor: url("../images/ball1.png") 32 32, auto;
   background-color: #f6ecd9;
   background-attachment: fixed;
-    overflow-x: hidden; /* 가로 스크롤 방지 */
+    overflow-x: hidden; /* 가로 스크롤 방지 */ 
 }
 
 /* header 스타일 */
@@ -313,6 +312,7 @@ main {
 /* aside */
 
 aside {
+  position: sticky; 
   flex: 1;
   margin-top: 0;
 }
