@@ -634,21 +634,7 @@ footer p {
     width: 36px;
     height: 48px;
   }
-  #profile {
-    flex-direction: column;
-    width: 90%;
-    padding: 10% 5%;
-  }
 
-  #profile img {
-    width: 100px;
-    margin-bottom: 10px;
-  }
-
-  #profile p {
-    font-size: 14px;
-    line-height: 1.4;
-  }
   .naiyong {
     padding-top: 50px;
     padding-left: 30px;
