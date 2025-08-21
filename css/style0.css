@@ -563,6 +563,20 @@ footer p {
     font-size: 14px;
     line-height: 1.4;
   }
+
+  #sero{
+    display: flex;
+    flex-direction: column;
+    width: 100%; 
+    align-self: center;
+  }
+  #garo{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-self: center;
+  }
+
   footer {
     padding: 0 10px;
   }
