@@ -565,13 +565,13 @@ footer p {
   #sero{
     display: flex;
     flex-direction: column;
-    max-width: 100%;
+    max-width: 90%;
     align-self: center;
   }
   #garo{
     display: flex;
     flex-direction: column;
-    max-width: 100%;
+    max-width: 90%;
     align-self: center;
   }
 
