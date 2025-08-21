@@ -317,9 +317,7 @@ main {
   text-align: center;
 }
 /* aside */
-aside{
-  position: sticky; 
-} 
+
 .sub-title {
   font-size: 1.375rem;
   padding: 0 8px 8px;
@@ -379,10 +377,15 @@ aside p {
 }
 /* 본문 영역을 세로 정렬하도록 설정 */
 .main-content {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  flex: 1;
+  align-items: center;
+  max-width: 1000px;
+  gap: 40px;
+  margin-left: 7.5%;
 }
+
 .content-wrapper > aside {
   width: 250px; /* 적당한 너비 */
   position: sticky; /* 스크롤 시 따라 내려오도록 */
