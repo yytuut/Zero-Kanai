@@ -784,6 +784,10 @@ footer p {
   footer p {
     font-size: 0.75rem;
   }
+
+   .main-content{
+  margin-left: 0;
+ }
   .content-wrapper {
     flex-direction: column;
     align-items: center;
@@ -792,15 +796,21 @@ footer p {
     order: -1; /* ⭐️ aside를 위로 */
     align-self: center;
   }
-  #ado,
+
   #matome {
     padding-top: 50px;
-    padding-left: 30px;
     padding-right: 30px;
   }
+  #ado{
+    padding-top: 50px;
+    padding-right: 30px;
+  }
+
   aside {
     width: 100%;
     margin-top: 20px;
+    margin-left:0;
+   margin-right:0;
   }
   /* 소개 프로필 */
  .intro-cards-wrapper {
