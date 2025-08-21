@@ -555,24 +555,30 @@ footer {
   }
   #profile {
     display: flex; /* 혹시 빠져있으면 추가 */
-    flex-direction: row; /* 이미지 왼쪽, 텍스트 오른쪽 유지 */
-    justify-content: center; /* 가로 중앙 정렬 */
-    width: 90%;
-    padding: 10% 5%;
     margin: 0 auto; /* 박스를 가운데로 */
     gap: 5px;
+    flex-direction: row; /* 이미지 왼쪽, 텍스트 오른쪽 */
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 12px;
+    width: 100%;
+    padding: 20px;
   }
 
   #profile img {
     max-width: 130px; /* 아무리 커져도 이 이상은 안 커짐 */
     margin-bottom: 10px;
+    height: auto;
   }
-  #profile-text {
-    margin-left: 5px;
+  .profile-text {
+    margin-left: 10px;
+    flex: 1;
   }
-  #profile p {
-    font-size: 14px;
-    line-height: 1.4;
+
+  .profile-text p,
+  .profile-text .indent {
+    font-size: 15px;
+    line-height: 1.5;
   }
   footer {
     padding: 0 10px;
