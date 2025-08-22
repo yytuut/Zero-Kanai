@@ -364,6 +364,17 @@ aside p {
 #WEB-moku {
   scroll-margin-top: 80px;
 }
+ #sero{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+  }
+  #garo{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-self: center;
+  }
 
 /* aside 옆부분 조정 */
 .content-wrapper {
@@ -396,7 +407,7 @@ aside p {
 #sero{
   display: flex;
   flex-direction: column; /* 가로 배치 */
-  gap: 30px; 
+  gap: 40px; 
   max-width: 100%;
   margin-right: 30px;
 }
