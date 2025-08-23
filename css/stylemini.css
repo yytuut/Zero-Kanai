@@ -135,8 +135,8 @@
 @media screen and (max-width: 600px) {
     .qr-code-btn {
                 right: 15px;
-                width: 36px;
-                height: 36px;
+                width: 30px;
+                height: 30px;
             }
 
             .qr-icon {
