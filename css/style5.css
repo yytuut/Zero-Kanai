@@ -543,7 +543,7 @@ section {
 
 /*brother광팬*/
 .realistic-marker-highlight {
-  background-color: #ffe96dad;
+  background-color: #ffd86d62;
   line-height: 1.8;      /* ↑ 줄 간격 조절로 마커 높이 확보 */
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
