@@ -150,12 +150,12 @@
 
             <section id="nagare">
               <h4 id="st" class="scroll-fade-in">一日の業務の流れ</h4>
-              <div class="chat-row left scroll-fade-in"">
+              <div class="chat-row left scroll-fade-in">
                 <img src="images/LJY.png" class="avatar" alt="Person 1">
                 <div class="speech-bubble">&nbsp;業務の流れはどうですか?</div>
               </div>
               <!-- 두 번째 사람 -->
-              <div class="chat-row right scroll-fade-in"">
+              <div class="chat-row right scroll-fade-in">
                 <div class="speech-bubble">
                   &nbsp;&nbsp;カシワコリアの業務時間は9時から5時20分で、昼休みは12時から1時です。業務内容が造船所とメールでやり取りを行うため、
                   業務の時間はほとんど机に座って仕事をします。出張の際は、造船所に行って、案件や情報を引き出したり、契約内容を確認したりしますね。
@@ -340,8 +340,23 @@
       </div>
     </div>
     <footer>
-      <p><small>&copy; 2025 ゼロから始まる夏休み</small></p>
+      <div class="footer-content">
+        <p><small>&copy; 2025 ゼロから始まる夏休み</small></p>
+        <div class="qr-code-btn" onclick="openQRModal()">
+          <img src="images/qwer.png" alt="QR Code" class="qr-icon">
+        </div>
+      </div>
     </footer>
+    <!-- QR 모달 -->
+    <div class="qr-modal-overlay" id="qrModalOverlay" onclick="closeQRModal(event)">
+        <div class="qr-modal-content" onclick="event.stopPropagation()">
+            <button class="qr-close-btn" onclick="closeQRModal()">×</button>
+            <h2 class="qr-modal-title">QR Code</h2>
+            <div class="qr-image-container">
+                <img src="images/qwer.png" class="qr-image">
+            </div>
+        </div>
+    </div>
   </body>
   <script src="js/kasiwa.js"></script>
 </html>
