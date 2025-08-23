@@ -298,8 +298,23 @@
       </div>
     </div>
     <footer>
+        <div class="footer-content">
         <p><small>&copy; 2025 ゼロから始まる夏休み</small></p>
+        <div class="qr-code-btn" onclick="openQRModal()">
+          <img src="images/qwer.png" alt="QR Code" class="qr-icon">
+        </div>
+      </div>
     </footer>
+    <!-- QR 모달 -->
+    <div class="qr-modal-overlay" id="qrModalOverlay" onclick="closeQRModal(event)">
+        <div class="qr-modal-content" onclick="event.stopPropagation()">
+            <button class="qr-close-btn" onclick="closeQRModal()">×</button>
+            <h2 class="qr-modal-title">QR Code</h2>
+            <div class="qr-image-container">
+                <img src="images/qwer.png" class="qr-image">
+            </div>
+        </div>
+    </div>
 </body>
 <script src="js/nihonzin.js"></script>
 </html>
