@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Yomogi&display=swap" rel="stylesheet">
     <!-- Yomogi 폰트 추가 -->
     <link rel="icon" type="images/png" href="images/kanai.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
   <body class="fade-in-start">
     <header class="page-header">
@@ -217,6 +218,12 @@
             </section>
           </div>
           <!--chat container-->
+          <!-- 지도 버튼 추가 (원하신 위치) -->
+          <!-- Font Awesome CDN 꼭 넣어줘야 함 -->
+          <button class="map-button" onclick="openMapModal()">
+            <i class="fas fa-map-marker-alt" style="margin-right: 8px;"></i>
+            カシワテック 所在地
+          </button>
         </div>
         <!--product-section-->
 
@@ -234,6 +241,104 @@
       </div>
       <!--"content-wrapper"-->
     </main>
+     <!-- 지도 모달 -->
+    <div id="mapModal" class="map-modal scroll-fade-in">
+      <div class="map-modal-content">
+        <span class="close-btn" onclick="closeMapModal()">&times;</span>
+        <h2 class="modal-title">カシワテック 所在地</h2>
+        <div class="modal-scroll-content">
+        <div class="office-grid">
+          <!-- 본사 (도쿄) -->
+          <div class="office-card">
+            <div class="office-title">🏢 本社</div>
+            <div class="office-address">
+              〒108-0074<br>
+              東京都港区高輪4-5-4<br>
+              オークウッドハウス<br>
+              <strong>営業部</strong><br>
+              TEL：03-5449-2431<br>
+              FAX：03-5449-2430<br>
+              <strong>企画管理本部</strong><br>
+              TEL：03-5449-2424<br>
+              FAX：03-5449-2454
+            </div>
+            <div class="map-links">
+              <a href="https://maps.app.goo.gl/mis1S8G7BRYzZATQ9" target="_blank" class="map-link google-map">
+                <img src="images/Google_Maps_icon_(2020).svg.png" alt="Google Maps" width="20" style="vertical-align: middle; margin-right: 6px;">Google Map</a>
+            </div>
+          </div>
+
+          <!-- 기술센터 (이바라키) -->
+          <div class="office-card">
+            <div class="office-title">🔨 技術センター</div>
+            <div class="office-address">
+              〒306-0515<br>
+              茨城県坂東市沓掛1165-9沓掛工業団地<br>
+              TEL：0297-44-3781<br>
+              FAX：0297-44-3788
+            </div>
+            <div class="map-links">
+              <a href="https://maps.app.goo.gl/ujHfn6jQydKB1MT7A" target="_blank" class="map-link google-map">
+                <img src="images/Google_Maps_icon_(2020).svg.png" alt="Google Maps" width="20" style="vertical-align: middle; margin-right: 6px;">Google Map</a>
+            </div>
+          </div>
+
+          <!-- 서일본지사 (후쿠야마) -->
+          <div class="office-card">
+            <div class="office-title">🌅 西日本支社</div>
+            <div class="office-address">
+              〒720-0811<br>
+              広島県福山市紅葉町2-35<br>
+              福山ＤＳビル<br>
+              TEL：084-973-3050<br>
+              FAX：084-927-1270
+            </div>
+            <div class="map-links">
+              <a href="https://maps.app.goo.gl/rDc6qbZYVBrgW6ku7" target="_blank" class="map-link google-map">
+                <img src="images/Google_Maps_icon_(2020).svg.png" alt="Google Maps" width="20" style="vertical-align: middle; margin-right: 6px;">Google Map</a>
+            </div>
+          </div>
+
+          <!-- 베트남지사 -->
+          <div class="office-card">
+            <div class="office-title"><img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg" alt="베트남 국기" width="27" style="vertical-align: middle;" />
+              カシワベトナム
+            </div>
+            <div class="office-address">
+              Quan Tru Industrial Zone, Quan Tru Ward,<br>
+              Kien An District, Hai Phong City, Vietnam<br>
+              TEL：+84-31-3545 642/643<br>
+              FAX：+84-31-3545 644
+            </div>
+            <div class="map-links">
+              <a href="https://maps.app.goo.gl/1X8mbAFt6sCDp8Bg7" target="_blank" class="map-link google-map">
+                <img src="images/Google_Maps_icon_(2020).svg.png" alt="Google Maps" width="20" style="vertical-align: middle; margin-right: 6px;">Google Map</a>
+            </div>
+          </div>
+          <!-- 한국지사 (부산) -->
+          <div class="office-card1">
+            <div class="office-title"><img src="https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg" alt="태극기" width="27" style="vertical-align: middle;" />
+              カシワコリア</div>
+            <div class="office-address">
+              〒48060<br>
+              釜山広域市海雲台区佑洞APEC路17、<br>
+              センタムリーダーズマーク4203号<br>
+              TEL：+82-51-752-7550<br>
+              FAX：+82-51-752-7552
+            </div>
+            <div class="map-links">
+              <a href="https://maps.app.goo.gl/H4847L9uqT6depQ67" target="_blank" class="map-link google-map">
+                <img src="images/Google_Maps_icon_(2020).svg.png" alt="Google Maps" width="20" style="vertical-align: middle; margin-right: 6px;">Google Map</a>
+              <a href="https://naver.me/GVE21HNl" target="_blank" class="map-link naver-map">
+                <img src="images/navermap.webp" alt="Naver Maps" width="20" style="vertical-align: middle; margin-right: 6px;">Naver Map</a>
+              <a href="https://kko.kakao.com/x5WsRgSeND" target="_blank" class="map-link kakao-map">
+                <img src="images/kakaomap.png" alt="Kakao Maps" width="20" style="vertical-align: middle; margin-right: 6px;">Kakao Map</a>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
     <footer>
       <p><small>&copy; 2025 ゼロから始まる夏休み</small></p>
     </footer>
