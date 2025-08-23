@@ -1281,8 +1281,8 @@ footer p {
 
     .qr-code-btn {
                 right: 15px;
-                width: 36px;
-                height: 36px;
+                width: 26px;
+                height: 26px;
             }
 
             .qr-icon {
@@ -1292,7 +1292,7 @@ footer p {
             }
 
             .qr-modal-content {
-                width: 450px;
+                width: 300px;
                 padding: 30px;
                 right: 30px;
             }
@@ -1303,8 +1303,8 @@ footer p {
             }
 
             .qr-image {
-                width: 350px;
-                height: 350px;
+                width: 300px;
+                height: 300px;
             }
 
             .qr-close-btn {

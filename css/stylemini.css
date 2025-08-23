@@ -135,8 +135,8 @@
 @media screen and (max-width: 600px) {
     .qr-code-btn {
                 right: 15px;
-                width: 30px;
-                height: 30px;
+                width: 26px;
+                height: 26px;
             }
 
             .qr-icon {
@@ -146,7 +146,7 @@
             }
 
             .qr-modal-content {
-                width: 350px;
+                width: 300px;
                 padding: 30px;
                 right: 30px;
             }
@@ -157,8 +157,8 @@
             }
 
             .qr-image {
-                width: 250px;
-                height: 250px;
+                width: 300px;
+                height: 300px;
             }
 
             .qr-close-btn {
