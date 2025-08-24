@@ -400,17 +400,31 @@ main {
   font-size: 2rem;
   width: 40px;
   height: 60px;
-  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  pointer-events: auto;
   border-radius: 8px;
   user-select: none;
   z-index: 20;
 }
-.popup-arrow {
+/* hover 효과 - 진한 회색 계열 */
+.popup-arrow:hover {
+  background-color: #555; /* 진한 회색 배경 */
+  color: white; /* 흰색 텍스트 */
+  border: 2px solid #666; /* 회색 테두리 */
   opacity: 1;
-  transition: opacity 0.3s ease;
-  pointer-events: auto;
+  transform: translateY(-50%) scale(1.05); /* 살짝 확대 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25); /* 적당한 그림자 */
 }
 
+/* active 효과 - 연한 검정 계열 */
+.popup-arrow:active {
+  background-color: #333; /* 연한 검정 배경 (완전 검정 대신) */
+  color: #f0f0f0; /* 연한 회색 텍스트 */
+  border: 2px solid #555; /* 중간 회색 테두리 */
+  transform: translateY(-50%) scale(0.98); /* 살짝 축소로 눌림 효과 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); /* 적당한 그림자 */
+}
 .popup-arrow.hidden {
   opacity: 0;
   pointer-events: none;
@@ -426,6 +440,25 @@ main {
 }
 .popup-arrow-right:hover {
   cursor: url("../images/ball2.png") 32 32, auto;
+}
+/* 추가 효과: focus 상태 (키보드 접근성) */
+.popup-arrow:focus {
+  outline: 3px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 2px;
+}
+/* 애니메이션 효과 추가 */
+@keyframes arrowPulse {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* 화살표에 맥박 효과 (선택적으로 사용) */
+.popup-arrow:not(:hover):not(:active) {
+  animation: arrowPulse 2s ease-in-out infinite;
 }
 /* 닫기 버튼 */
 .popup-close {

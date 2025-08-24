@@ -224,7 +224,7 @@ main {
 
 .slides img {
   width: 100%;
-  height: 400px;
+  height: auto;
   flex-shrink: 0;
 }
 #cheong2 .slider {
@@ -261,7 +261,18 @@ main {
   z-index: 10;
   cursor: url("../images/ball2.png") 32 32, auto;
 }
-
+.prev:hover,
+.next:hover {
+  background-color: rgba(123, 94, 87, 0.9);  /* 배경색 진하게 */
+  color: #fff;  /* 텍스트 흰색으로 */
+  transform: translateY(-50%) scale(1.1);  /* 살짝 크게 */
+}
+.prev:active,
+.next:active {
+  background-color: #7b5e57;  /* 클릭 시 더 진한 색 */
+  color: #f6ecd9;  /* 클릭 시 배경색과 같은 베이지 톤 */
+  transform: translateY(-50%) scale(0.95);  /* 클릭 시 살짝 작아지는 효과 */
+}
 .prev {
   left: 10px;
 }
