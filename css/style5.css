@@ -1239,7 +1239,7 @@ footer p {
                 display: block;
             }
 .team-name-meaning {
-    font-size: 1.2rem; /* 모바일에서는 좀 더 작게 */
+    font-size: 1.1rem; /* 모바일에서는 좀 더 작게 */
     margin-top: 6px;
     margin-bottom: 6px;
     text-decoration: none; /* 밑줄이 너무 두드러지면 제거 고려 */
