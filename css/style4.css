@@ -764,7 +764,7 @@ footer p {
             border: 2px solid #7b5e57;
             border-radius: 15px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-            z-index: 1400;
+            z-index: 1600;
             opacity: 0;
             transform: translateY(20px);
             pointer-events: none;
