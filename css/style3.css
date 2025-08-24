@@ -1021,7 +1021,108 @@ footer p {
     opacity: 1;
   }
 }
+/* 모바일 Aside 버튼 스타일 */
+        .mobile-aside-btn {
+            display: none;
+            position: fixed;
+            right: 15px;
+            bottom: 50px;
+            width: 50px;
+            height: 50px;
+            background-color: #7b5e57;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            z-index: 1500;
+            transition: all 0.3s ease;
+            cursor: url("../images/ball2.png") 32 32, auto;
+        }
 
+        .mobile-aside-btn:hover {
+            transform: scale(1.1);
+            background-color: #a38781;
+        }
+
+        /* 모바일 Aside 드롭다운 */
+        .mobile-aside-dropdown {
+            display: none;
+            position: fixed;
+            right: 15px;
+            bottom: 120px;
+            background-color: #fff;
+            border: 2px solid #7b5e57;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            z-index: 1400;
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            transition: all 0.3s ease;
+            max-width: 250px;
+            width: calc(100vw - 40px);
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .mobile-aside-dropdown.show {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .mobile-aside-dropdown h3 {
+            margin: 0;
+            padding: 15px 20px 10px;
+            color: #7b5e57;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #7b5e57;
+            background-color: #f6ecd9;
+            border-radius: 13px 13px 0 0;
+            font-family: "Klee One", cursive;
+            font-weight: bold;
+        }
+
+        .mobile-aside-dropdown ul {
+            list-style: none;
+            padding: 10px 0;
+            margin: 0;
+        }
+
+        .mobile-aside-dropdown li {
+            margin: 0;
+            padding: 0;
+        }
+
+        .mobile-aside-dropdown a {
+            display: block;
+            padding: 12px 20px;
+            color: #333;
+            text-decoration: none;
+            font-family: "Klee One", cursive;
+            font-size: 14px;
+            line-height: 1.4;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid #eee;
+            font-weight: bold;
+        }
+
+        .mobile-aside-dropdown a:hover {
+            background-color: #f6ecd9;
+            color: #7b5e57;
+            padding-left: 25px;
+        }
+
+        .mobile-aside-dropdown li:last-child a {
+            border-bottom: none;
+        }
+
+        .mobile-aside-btn:hover {
+            transform: scale(1.1);
+            background-color: #a38781;
+        }
 /* 600px 이하 화면용 반응형 디자인 */
 @media screen and (max-width: 600px) {
   html,
@@ -1315,6 +1416,13 @@ footer p {
                 width: 35px;
                 height: 35px;
                 font-size: 18px;
+            }
+            .mobile-aside-btn {
+                display: block;
+            }
+            
+            .mobile-aside-dropdown {
+                display: block;
             }
 }
 
