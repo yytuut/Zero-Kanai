@@ -1238,4 +1238,18 @@ footer p {
             .mobile-aside-dropdown {
                 display: block;
             }
+.team-name-meaning {
+    font-size: 1.2rem; /* 모바일에서는 좀 더 작게 */
+    margin-top: 6px;
+    margin-bottom: 6px;
+    text-decoration: none; /* 밑줄이 너무 두드러지면 제거 고려 */
+    text-align: center; /* 필요하다면 중앙 정렬 */
+  }           
+.typing-content {
+    font-size: 1rem;         /* 글자 크기 소폭 감소 */
+    line-height: 1.6;        /* 줄 간격 약간 줄임 */
+    padding: 8px 12px;       /* 좌우 여백 추가해서 가독성 확보 */
+    transform: translateY(-5px); /* 너무 많이 움직이지 않도록 조정 */
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* 약간 빠르게 */
+  }
 }
