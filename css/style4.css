@@ -862,6 +862,40 @@ footer p {
     transform: scale(1.1);
     background-color: #a38781;
 }
+/* 새로운 PC용 스크롤 버튼 */
+.pc-scroll-btn {
+    width: 50px;
+    height: 50px;
+    background-color: #7b5e57;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    cursor: url("../images/ball2.png") 32 32, auto;
+    margin: 5px 0;
+}
+
+.pc-scroll-btn:hover {
+    transform: scale(1.1);
+    background-color: #a38781;
+}
+
+.pc-scroll-btn:active {
+    transform: scale(0.95);
+    background-color: #6b4e47;
+}
+
+/* PC용 버튼 컨테이너 */
+.pc-scroll-buttons-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
 /* 600px 이하 화면용 반응형 디자인 */
 @media screen and (max-width: 600px) {
   html,
@@ -1082,4 +1116,13 @@ footer p {
             .mobile-scroll-btn{
               display: block;
             }
+            .pc-scroll-buttons-container {
+              display: none;
+            }
+  }
+  /* PC에서만 PC용 버튼 표시 */
+@media screen and (min-width: 601px) {
+    .pc-scroll-buttons-container {
+        display: flex;
+    }
 }
