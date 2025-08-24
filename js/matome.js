@@ -394,3 +394,123 @@ document.addEventListener('keydown', function(event) {
         closeQRModal();
     }
 });
+
+// 팀명의미 타이핑 효과 (수정된 버전)
+let isTyping = false;
+let isTextVisible = false;
+let typingTimer;
+let currentTypingIndex = 0; // 변수명 변경 (기존 currentIndex와 충돌 방지)
+
+const fullText = "3人ともITスキルが足りない状態なので、夏休みに行うプロジェクトをゼロから頑張って作っていこうという意味を込めたチーム名です。";
+const typingSpeed = 60; // 조금 더 빠르게 (80ms → 60ms)
+
+function toggleTypingEffect() {
+    console.log('toggleTypingEffect 호출됨'); // 디버깅용
+    
+    if (isTyping) {
+        console.log('현재 타이핑 중이므로 무시');
+        return; // 타이핑 중이면 무시
+    }
+    
+    const typingText = document.getElementById('typingText');
+    const typingContent = document.getElementById('typingContent');
+    
+    // 요소 존재 확인
+    if (!typingText) {
+        console.error('typingText 요소를 찾을 수 없습니다');
+        return;
+    }
+    if (!typingContent) {
+        console.error('typingContent 요소를 찾을 수 없습니다');
+        return;
+    }
+    
+    console.log('현재 텍스트 표시 상태:', isTextVisible);
+    
+    if (isTextVisible) {
+        // 텍스트가 보이는 상태 -> 사라지게 하기
+        hideText();
+    } else {
+        // 텍스트가 숨겨진 상태 -> 타이핑 효과로 보이게 하기
+        showTextWithTyping();
+    }
+}
+
+function showTextWithTyping() {
+    console.log('showTextWithTyping 호출됨');
+    
+    const typingText = document.getElementById('typingText');
+    const typingContent = document.getElementById('typingContent');
+    
+    isTyping = true;
+    isTextVisible = false;
+    currentTypingIndex = 0;
+    
+    // 컨테이너 확장
+    typingContent.classList.add('expanded');
+    console.log('expanded 클래스 추가됨');
+    
+    // 타이핑 시작
+    typingText.innerHTML = '<span class="cursor"></span>';
+    typingText.classList.add('visible');
+    
+    typingTimer = setInterval(() => {
+        if (currentTypingIndex < fullText.length) {
+            const currentText = fullText.substring(0, currentTypingIndex + 1);
+            typingText.innerHTML = currentText + '<span class="cursor"></span>';
+            currentTypingIndex++;
+        } else {
+            // 타이핑 완료
+            clearInterval(typingTimer);
+            typingText.innerHTML = fullText; // 커서 제거
+            isTyping = false;
+            isTextVisible = true;
+            console.log('타이핑 완료');
+        }
+    }, typingSpeed);
+}
+
+function hideText() {
+    console.log('hideText 호출됨');
+    
+    const typingText = document.getElementById('typingText');
+    const typingContent = document.getElementById('typingContent');
+    
+    typingText.classList.add('fade-out');
+    
+    setTimeout(() => {
+        typingText.innerHTML = '';
+        typingText.classList.remove('visible', 'fade-out');
+        typingContent.classList.remove('expanded'); // 컨테이너 축소
+        isTextVisible = false;
+        currentTypingIndex = 0;
+        console.log('텍스트 숨김 완료');
+    }, 600); // 애니메이션 시간에 맞춰 조정 (500ms → 600ms)
+}
+
+// 페이지 로드시 초기화 및 이벤트 리스너 등록
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOMContentLoaded 이벤트 발생');
+    
+    const typingText = document.getElementById('typingText');
+    const teamNameMeaning = document.querySelector('.team-name-meaning');
+    
+    if (typingText) {
+        typingText.innerHTML = '';
+        console.log('typingText 초기화 완료');
+    } else {
+        console.error('typingText 요소를 찾을 수 없습니다');
+    }
+    
+    if (teamNameMeaning) {
+        console.log('team-name-meaning 요소 찾음, 이벤트 리스너 등록');
+        teamNameMeaning.addEventListener('click', toggleTypingEffect);
+    } else {
+        console.error('team-name-meaning 요소를 찾을 수 없습니다');
+    }
+    
+    // 모든 관련 요소들 확인
+    console.log('typingText:', document.getElementById('typingText'));
+    console.log('typingContent:', document.getElementById('typingContent'));
+    console.log('team-name-meaning:', document.querySelector('.team-name-meaning'));
+});
