@@ -275,7 +275,7 @@ main {
 /* 소개 프로필 */
 .imimi {
   font-family: "Klee One", cursive;
-  text-align: left;
+  text-align: center;
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
