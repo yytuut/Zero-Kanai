@@ -401,7 +401,7 @@ let isTextVisible = false;
 let typingTimer;
 let currentTypingIndex = 0; // 변수명 변경 (기존 currentIndex와 충돌 방지)
 
-const fullText = "3人ともITスキルが足りない状態なので、夏休みに行うプロジェクトをゼロから頑張って作っていこうという意味を込めたチーム名です。";
+const fullText = "3人ともITスキルが足りない状態なので、<br>夏休みに行うプロジェクトをゼロから頑張って作っていこうという意味を込めたチーム名です。👨‍💻😄👩‍💻";
 const typingSpeed = 60; // 조금 더 빠르게 (80ms → 60ms)
 
 function toggleTypingEffect() {
