@@ -125,3 +125,25 @@ document.addEventListener('keydown', function(event) {
         closeQRModal();
     }
 });
+
+// 모바일 Aside 토글 함수
+function toggleMobileAside() {
+    const dropdown = document.getElementById('mobile-aside-dropdown');
+    dropdown.classList.toggle('show');
+}
+
+// 모바일 Aside 닫기 함수
+function closeMobileAside() {
+    const dropdown = document.getElementById('mobile-aside-dropdown');
+    dropdown.classList.remove('show');
+}
+
+// 외부 클릭시 모바일 aside 닫기
+document.addEventListener('click', function(event) {
+    const dropdown = document.getElementById('mobile-aside-dropdown');
+    const button = document.querySelector('.mobile-aside-btn');
+    
+    if (!dropdown.contains(event.target) && !button.contains(event.target)) {
+        dropdown.classList.remove('show');
+    }
+});
