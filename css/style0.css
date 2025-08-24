@@ -333,7 +333,6 @@ main {
   font-size: 1.375rem;
   padding: 0 8px 8px;
   border-bottom: 2px #7b5e57 solid;
-  font-weight: normal;
 }
 aside p {
   padding: 12px 10px;
@@ -363,6 +362,10 @@ aside p {
 
 .sub-menu a:hover {
   color: #ccc;
+  cursor: url("../images/ball2.png") 32 32, auto;
+}
+.sub-menu a:active{
+  color: #7b5e57;
   cursor: url("../images/ball2.png") 32 32, auto;
 }
 /* 사이드바 목록 */
