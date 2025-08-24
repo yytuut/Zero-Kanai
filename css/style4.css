@@ -831,6 +831,37 @@ footer p {
             transform: scale(1.1);
             background-color: #a38781;
         }
+ /* 모바일 스크롤 버튼들 */
+.mobile-scroll-btn {
+    display: none;
+    position: fixed;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    background-color: #7b5e57;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 1500;
+    transition: all 0.3s ease;
+    cursor: url("../images/ball2.png") 32 32, auto;
+}
+
+.mobile-top-btn {
+    bottom: 170px; /* 맨 위로 버튼 */
+}
+
+.mobile-bottom-btn {
+    bottom: 110px; /* 맨 아래로 버튼 */
+}
+
+.mobile-scroll-btn:hover {
+    transform: scale(1.1);
+    background-color: #a38781;
+}
 /* 600px 이하 화면용 반응형 디자인 */
 @media screen and (max-width: 600px) {
   html,
@@ -1047,5 +1078,8 @@ footer p {
             
             .mobile-aside-dropdown {
                 display: block;
+            }
+            .mobile-scroll-btn{
+              display: block;
             }
 }
