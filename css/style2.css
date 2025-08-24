@@ -327,13 +327,13 @@ aside {
   position: sticky; 
   flex: 1;
   margin-top: 0;
+  font-weight: bold;
 }
 
 .sub-title {
   font-size: 1.375rem;
   padding: 0 8px 8px;
   border-bottom: 2px #7b5e57 solid;
-  font-weight: normal;
 }
 
 aside p {
@@ -364,6 +364,10 @@ aside p {
 
 .sub-menu a:hover {
   color: #ccc;
+  cursor: url("../images/ball2.png") 32 32, auto;
+}
+.sub-menu a:active{
+  color: #7b5e57;
   cursor: url("../images/ball2.png") 32 32, auto;
 }
 /* aside 옆부분 조정 */
